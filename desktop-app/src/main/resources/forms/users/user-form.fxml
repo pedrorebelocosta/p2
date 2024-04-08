@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="222.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nolhtaced.desktop.controllers.forms.users.UserFormController">
+   <TextField fx:id="usernameField" layoutX="24.0" layoutY="41.0" />
+   <Label layoutX="24.0" layoutY="24.0" text="Username" />
+   <TextField fx:id="firstNameField" layoutX="24.0" layoutY="93.0" />
+   <Label layoutX="24.0" layoutY="76.0" text="First Name" />
+   <TextField fx:id="lastNameField" layoutX="194.0" layoutY="93.0" />
+   <Label layoutX="194.0" layoutY="76.0" text="Last Name" />
+   <DatePicker fx:id="dateOfBirthField" layoutX="24.0" layoutY="146.0" prefHeight="25.0" prefWidth="161.0" />
+   <Label layoutX="23.0" layoutY="129.0" text="Date of Birth" />
+   <CheckBox fx:id="activeField" layoutX="305.0" layoutY="15.0" mnemonicParsing="false" text="Active" />
+   <Button fx:id="saveBtn" layoutX="318.0" layoutY="183.0" mnemonicParsing="false" onAction="#onClickSave" text="Save" />
+   <Button fx:id="cancelBtn" cancelButton="true" layoutX="253.0" layoutY="183.0" mnemonicParsing="false" onAction="#onClickCancel" text="Cancel" />
+   <Label layoutX="194.0" layoutY="24.0" text="Password" />
+   <PasswordField fx:id="passwordField" layoutX="194.0" layoutY="41.0" />
+</AnchorPane>

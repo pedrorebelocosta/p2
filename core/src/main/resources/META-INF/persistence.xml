@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+    <persistence-unit name="bike_shop">
+        <class>org.nolhtaced.core.entities.CategoryEntity</class>
+        <class>org.nolhtaced.core.entities.CustomerEntity</class>
+        <class>org.nolhtaced.core.entities.CustomerBicycleEntity</class>
+        <class>org.nolhtaced.core.entities.EmployeeEntity</class>
+        <class>org.nolhtaced.core.entities.ProductEntity</class>
+        <class>org.nolhtaced.core.entities.RepairEntity</class>
+        <class>org.nolhtaced.core.entities.RepairProductEntity</class>
+        <class>org.nolhtaced.core.entities.RepairProductIdEntity</class>
+        <class>org.nolhtaced.core.entities.RepairServiceEntity</class>
+        <class>org.nolhtaced.core.entities.RepairServiceIdEntity</class>
+        <class>org.nolhtaced.core.entities.ServiceEntity</class>
+        <class>org.nolhtaced.core.entities.TransactionEntity</class>
+        <class>org.nolhtaced.core.entities.TransactionProductEntity</class>
+        <class>org.nolhtaced.core.entities.TransactionServiceEntity</class>
+        <class>org.nolhtaced.core.entities.UserEntity</class>
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver_class" value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/bikes"/>
+            <property name="jakarta.persistence.jdbc.user" value="bike_shop_app"/>
+            <property name="jakarta.persistence.jdbc.password" value="bikesrule"/>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="631cfad4-049a-4269-bcc0-fd8c2e956814" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/NolhtacedSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/dao/Dao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/dao/DaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/CategoryEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/CustomerBicycleEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/CustomerEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/EmployeeEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/ProductEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/RepairEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/RepairProductEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/RepairProductIdEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/RepairServiceEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/RepairServiceIdEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/ServiceEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionProductEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionProductIdEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionServiceEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionServiceIdEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/enumerators/BicycleTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/enumerators/RepairStateEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/enumerators/TransactionStateEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/enumerators/UserRoleEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/exceptions/BicycleNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/exceptions/CategoryNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/exceptions/EmployeeNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/exceptions/ObjectStillReferencedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/exceptions/ProductNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/exceptions/RepairNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/exceptions/ServiceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/exceptions/SessionNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/exceptions/TransactionNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/exceptions/UnableToChangePasswordException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/exceptions/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/BicycleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/CategoryMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/CustomerMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/EmployeeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/ProductMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/RepairMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/ServiceMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/TransactionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/Bicycle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/Repair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/RepairItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/Transaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/TransactionItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/providers/ModelMapperProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/providers/PersistenceProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/BaseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/BicycleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/EmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/RepairService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/ServiceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/TransactionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/types/Identifiable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/utilities/ImageUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/utilities/NolhtacedRegex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/utilities/PasswordUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/UIManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/UserSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/ApplicationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/BaseFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/users/CustomerFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/users/EmployeeFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/users/UserFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/enumerators/EAppArea.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/enumerators/EAppView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/exceptions/UIManagerNotInitializedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/testclass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/users/customer-form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/users/employee-form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/users/user-form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/screens/application/application.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/screens/login/login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/views/user-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaFXApplication" />
+        <option value="Enum" />
+        <option value="package-info" />
+        <option value="module-info" />
+        <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2eaFG2EYxC8Uc8StMouNRszDCzy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.DesktopApplication.executor": "Run",
+    "Application.Laucher.executor": "Run",
+    "Application.Launcher.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.org.nolhtaced.desktop.DesktopApplication.executor": "Run",
+    "Application.org.nolhtaced.desktop.Main.executor": "Run",
+    "Maven.base [-q,-Dexec.executable=\"echo\"...].executor": "Run",
+    "Maven.base [-v].executor": "Run",
+    "Maven.base [clean].executor": "Run",
+    "Maven.base [install].executor": "Run",
+    "Maven.base [package].executor": "Run",
+    "Maven.core [clean].executor": "Run",
+    "Maven.core [compile].executor": "Run",
+    "Maven.core [install].executor": "Run",
+    "Maven.core [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.core [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile].executor": "Run",
+    "Maven.core [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor": "Run",
+    "Maven.core [org.apache.maven.plugins:maven-jar-plugin:3.3.0:jar].executor": "Run",
+    "Maven.core [package].executor": "Run",
+    "Maven.desktop-app [clean,install,javafx:run].executor": "Run",
+    "Maven.desktop-app [clean,install;,javafx:run].executor": "Run",
+    "Maven.desktop-app [clean].executor": "Run",
+    "Maven.desktop-app [compile].executor": "Run",
+    "Maven.desktop-app [dependency:purge-local-repository].executor": "Run",
+    "Maven.desktop-app [help:effective-pom].executor": "Run",
+    "Maven.desktop-app [install].executor": "Run",
+    "Maven.desktop-app [javafx:run] (1).executor": "Run",
+    "Maven.desktop-app [javafx:run].executor": "Run",
+    "Maven.desktop-app [mvn,clean,install;...].executor": "Run",
+    "Maven.desktop-app [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.desktop-app [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile].executor": "Run",
+    "Maven.desktop-app [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:testCompile].executor": "Run",
+    "Maven.desktop-app [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
+    "Maven.desktop-app [package].executor": "Run",
+    "Maven.desktop-app [run-build-deps].executor": "Run",
+    "Maven.desktop-app [run].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "corretto-11",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/pedrocosta/Desktop/nolhtaced-core/core/src/main/java/org/nolhtaced",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "ts.external.directory.path": "/Users/pedrocosta/Desktop/nolhtaced-core/web-app/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core/src/main/java/org/nolhtaced" />
+      <recent name="$PROJECT_DIR$/core/src/main/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/desktop-app/src/main/resources/forms" />
+      <recent name="$PROJECT_DIR$/desktop-app/src/main/resources/forms/users" />
+      <recent name="$PROJECT_DIR$/desktop-app/src/main/resources/scenes" />
+      <recent name="$PROJECT_DIR$/desktop-app/src/main/resources/images" />
+      <recent name="$PROJECT_DIR$/src/main/java/org/nolhtaced/desktop" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Maven.desktop-app [run]">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.nolhtaced.core.Main" />
+      <module name="core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.nolhtaced.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="desktop-app [run-build-deps]" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings">
+          <MavenGeneralSettings>
+            <option name="alwaysUpdateSnapshots" value="false" />
+            <option name="checksumPolicy" value="NOT_SET" />
+            <option name="emulateTerminal" value="false" />
+            <option name="failureBehavior" value="NOT_SET" />
+            <option name="localRepository" value="" />
+            <option name="mavenHome" value="Bundled (Maven 3)" />
+            <option name="mavenHomeType">
+              <MavenHomeType />
+            </option>
+            <option name="nonRecursive" value="false" />
+            <option name="outputLevel" value="INFO" />
+            <option name="printErrorStackTraces" value="false" />
+            <option name="showDialogWithAdvancedSettings" value="false" />
+            <option name="threads" />
+            <option name="useMavenConfig" value="true" />
+            <option name="userSettingsFile" value="" />
+            <option name="workOffline" value="false" />
+          </MavenGeneralSettings>
+        </option>
+        <option name="myRunnerSettings">
+          <MavenRunnerSettings>
+            <option name="delegateBuildToMaven" value="false" />
+            <option name="environmentProperties">
+              <map />
+            </option>
+            <option name="jreName" value="#USE_PROJECT_JDK" />
+            <option name="mavenProperties">
+              <map />
+            </option>
+            <option name="passParentEnv" value="true" />
+            <option name="runMavenInBackground" value="true" />
+            <option name="skipTests" value="false" />
+            <option name="vmOptions" value="" />
+          </MavenRunnerSettings>
+        </option>
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="javafx:run" />
+              </list>
+            </option>
+            <option name="multimoduleDir" value="$PROJECT_DIR$" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/desktop-app" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="desktop-app [run]" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings">
+          <MavenRunnerSettings>
+            <option name="delegateBuildToMaven" value="false" />
+            <option name="environmentProperties">
+              <map />
+            </option>
+            <option name="jreName" value="#USE_PROJECT_JDK" />
+            <option name="mavenProperties">
+              <map />
+            </option>
+            <option name="passParentEnv" value="true" />
+            <option name="runMavenInBackground" value="true" />
+            <option name="skipTests" value="false" />
+            <option name="vmOptions" value="" />
+          </MavenRunnerSettings>
+        </option>
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="javafx:run" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/desktop-app" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JavaScript Debug.Debug Application" />
+      <item itemvalue="Maven.desktop-app [run]" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-11.0.22-corretto-11.0.22-4caba194b151-396cc1b2" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="631cfad4-049a-4269-bcc0-fd8c2e956814" name="Changes" comment="" />
+      <created>1712134683837</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712134683837</updated>
+      <workItem from="1712134685332" duration="3493000" />
+      <workItem from="1712141208060" duration="5681000" />
+      <workItem from="1712152519574" duration="21849000" />
+      <workItem from="1712226972217" duration="11628000" />
+      <workItem from="1712244207348" duration="39039000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
