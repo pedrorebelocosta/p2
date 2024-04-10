@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import org.nolhtaced.desktop.enumerators.EAppArea;
 import org.nolhtaced.desktop.exceptions.UIManagerNotInitializedException;
+import org.nolhtaced.desktop.utilities.UIManager;
 
 import java.io.IOException;
 

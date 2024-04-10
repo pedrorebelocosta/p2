@@ -1,6 +1,6 @@
 package org.nolhtaced.desktop;
 
-import org.nolhtaced.core.NolhtacedSession;
+import org.nolhtaced.core.types.NolhtacedSession;
 import org.nolhtaced.core.models.User;
 
 import java.util.Optional;

@@ -2,6 +2,8 @@ package org.nolhtaced.core.models;
 
 import org.nolhtaced.core.types.Identifiable;
 
+import java.util.Objects;
+
 public class Category extends Identifiable<Integer> {
     private String name;
     private String title;
@@ -34,5 +36,18 @@ public class Category extends Identifiable<Integer> {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Category category = (Category) o;
+        return Objects.equals(name, category.name) && Objects.equals(title, category.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, title);
     }
 }

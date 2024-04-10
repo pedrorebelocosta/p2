@@ -1,8 +1,7 @@
 package org.nolhtaced.core.services;
 
 import jakarta.persistence.PersistenceException;
-import org.hibernate.ObjectDeletedException;
-import org.nolhtaced.core.NolhtacedSession;
+import org.nolhtaced.core.types.NolhtacedSession;
 import org.nolhtaced.core.dao.Dao;
 import org.nolhtaced.core.dao.DaoImpl;
 import org.nolhtaced.core.entities.CategoryEntity;

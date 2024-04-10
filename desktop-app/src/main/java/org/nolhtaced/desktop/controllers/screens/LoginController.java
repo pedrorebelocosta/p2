@@ -1,4 +1,4 @@
-package org.nolhtaced.desktop.controllers;
+package org.nolhtaced.desktop.controllers.screens;
 
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import org.nolhtaced.core.exceptions.UserNotFoundException;
 import org.nolhtaced.core.services.UserService;
 import org.nolhtaced.core.utilities.NolhtacedRegex;
-import org.nolhtaced.desktop.UIManager;
+import org.nolhtaced.desktop.utilities.UIManager;
 import org.nolhtaced.desktop.UserSession;
 import org.nolhtaced.desktop.enumerators.EAppArea;
 import org.nolhtaced.desktop.exceptions.UIManagerNotInitializedException;
@@ -69,19 +69,6 @@ public class LoginController {
                 })
                 .decorates(username)
                 .decorates(password);
-
-
-        // TODO remove this, just testing
-//        validator.createCheck()
-//                .dependsOn("password", password.textProperty())
-//                .withMethod(context -> {
-//                    String rawPassword = context.get("password");
-//
-//                    if (!rawPassword.matches(NolhtacedRegex.PASSWORD_REQUIREMENTS_PATTERN)) {
-//                        context.error("Your password must contain a minimum of 8 characters, one letter and one special character!");
-//                    }
-//                })
-//                .decorates(password);
 
         loginButton.disableProperty().bind(Bindings.or(username.textProperty().isEmpty(), password.textProperty().isEmpty()));
     }

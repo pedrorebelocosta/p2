@@ -14,7 +14,7 @@ import org.nolhtaced.core.models.User;
 import org.nolhtaced.core.services.CustomerService;
 import org.nolhtaced.core.services.EmployeeService;
 import org.nolhtaced.core.services.UserService;
-import org.nolhtaced.desktop.UIManager;
+import org.nolhtaced.desktop.utilities.UIManager;
 import org.nolhtaced.desktop.UserSession;
 
 import java.io.IOException;
@@ -60,7 +60,7 @@ public class UserController {
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         usernameCol.setCellValueFactory(new PropertyValueFactory<>("username"));
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        lastNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         dateOfBirthCol.setCellValueFactory(new PropertyValueFactory<>("dateOfBirth"));
         roleCol.setCellValueFactory(new PropertyValueFactory<>("role"));
         activeCol.setCellValueFactory(new PropertyValueFactory<>("active"));
@@ -74,19 +74,19 @@ public class UserController {
     public void onClickAdd(UserRoleEnum type) {
         if (type == UserRoleEnum.ADMINISTRATOR) {
             try {
-                UIManager.openForm("/forms/users/user-form.fxml");
+                UIManager.<User>openForm("/forms/users/user-form.fxml", unused -> this.populateTable());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         } else if (type == UserRoleEnum.CUSTOMER) {
             try {
-                UIManager.openForm("/forms/users/customer-form.fxml");
+                UIManager.openForm("/forms/users/customer-form.fxml", unused -> this.populateTable());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         } else {
             try {
-                UIManager.openForm("/forms/users/employee-form.fxml");
+                UIManager.<Employee>openForm("/forms/users/employee-form.fxml", unused -> this.populateTable());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -98,7 +98,7 @@ public class UserController {
 
         if (user.getRole() == UserRoleEnum.ADMINISTRATOR) {
             try {
-                UIManager.openFormWithData("/forms/users/user-form.fxml", user);
+                UIManager.openForm("/forms/users/user-form.fxml", user, unused -> this.populateTable());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -107,7 +107,7 @@ public class UserController {
         else if (user.getRole() == UserRoleEnum.CUSTOMER) {
             try {
                 Customer customer = customerService.get(user.getId());
-                UIManager.openFormWithData("/forms/users/customer-form.fxml", customer);
+                UIManager.openForm("/forms/users/customer-form.fxml", customer, unused -> this.populateTable());
             } catch (UserNotFoundException e) {
                 throw new RuntimeException(e);
             } catch (IOException e) {
@@ -118,7 +118,7 @@ public class UserController {
         else {
             try {
                 Employee employee = employeeService.get(user.getId());
-                UIManager.openFormWithData("/forms/users/employee-form.fxml", employee);
+                UIManager.openForm("/forms/users/employee-form.fxml", employee, unused -> this.populateTable());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             } catch (UserNotFoundException e) {
@@ -157,9 +157,7 @@ public class UserController {
 
                 // refresh table after deletion
                 populateTable();
-            } catch (UserNotFoundException e) {
-                throw new RuntimeException(e);
-            } catch (ObjectStillReferencedException e) {
+            } catch (UserNotFoundException | ObjectStillReferencedException e) {
                 Alert errorAlert = new Alert(Alert.AlertType.ERROR);
                 errorAlert.setTitle("Unable to delete user!");
                 errorAlert.setContentText("It was not possible to delete this user!");
@@ -168,12 +166,14 @@ public class UserController {
         }
     }
 
-    private void populateTable() {
+    private Void populateTable() {
         try {
             tableView.getItems().setAll(userService.getAll());
         } catch (SessionNotFoundException e) {
             throw new RuntimeException(e);
         }
+
+        return null;
     }
 
     private void populateMenuOptions() {
@@ -186,17 +186,9 @@ public class UserController {
         }
 
         if (role == UserRoleEnum.ADMINISTRATOR || role == UserRoleEnum.MANAGER) {
-            MenuItem managerItem = new MenuItem("Manager");
-            managerItem.setOnAction((e) -> onClickAdd(UserRoleEnum.MANAGER));
-            addBtn.getItems().add(managerItem);
-
-            MenuItem salesRepItem = new MenuItem("Sales Representative");
-            salesRepItem.setOnAction((e) -> onClickAdd(UserRoleEnum.SALES_REPRESENTATIVE));
-            addBtn.getItems().add(salesRepItem);
-
-            MenuItem mechanicItem = new MenuItem("Mechanic");
-            mechanicItem.setOnAction((e) -> onClickAdd(UserRoleEnum.MECHANIC));
-            addBtn.getItems().add(mechanicItem);
+            MenuItem employeeItem = new MenuItem("Employee");
+            employeeItem.setOnAction((e) -> onClickAdd(UserRoleEnum.MANAGER));
+            addBtn.getItems().add(employeeItem);
         }
 
         MenuItem customerItem = new MenuItem("Customer");

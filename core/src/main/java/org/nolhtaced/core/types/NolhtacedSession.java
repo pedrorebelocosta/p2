@@ -1,4 +1,4 @@
-package org.nolhtaced.core;
+package org.nolhtaced.core.types;
 
 import org.nolhtaced.core.models.User;
 

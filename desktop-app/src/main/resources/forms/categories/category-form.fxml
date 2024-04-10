@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="157.0" prefWidth="395.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nolhtaced.desktop.controllers.forms.categories.CategoryFormController">
+   <children>
+      <Label layoutX="33.0" layoutY="41.0" text="Name" />
+      <TextField fx:id="nameField" layoutX="33.0" layoutY="58.0" />
+      <Label layoutX="210.0" layoutY="41.0" text="Title" />
+      <TextField fx:id="titleField" layoutX="210.0" layoutY="58.0" />
+      <Button layoutX="262.0" layoutY="109.0" mnemonicParsing="false" onAction="#onClickCancel" text="Cancel" />
+      <Button layoutX="325.0" layoutY="109.0" mnemonicParsing="false" onAction="#onClickSave" text="Save" />
+   </children>
+</AnchorPane>

@@ -1,10 +1,9 @@
-package org.nolhtaced.desktop.controllers;
+package org.nolhtaced.desktop.controllers.screens;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import org.nolhtaced.desktop.UIManager;
+import org.nolhtaced.desktop.utilities.UIManager;
 import org.nolhtaced.desktop.enumerators.EAppView;
 
 import java.io.IOException;
@@ -17,11 +16,13 @@ public class ApplicationController {
 
     static {
         VIEWS_LOCATION_MAP.put(EAppView.USER_MANAGEMENT, "/views/user-view.fxml");
+        VIEWS_LOCATION_MAP.put(EAppView.PRODUCT_MANAGEMENT, "/views/product-view.fxml");
+        VIEWS_LOCATION_MAP.put(EAppView.CATEGORY_MANAGEMENT, "/views/category-view.fxml");
     }
 
     @FXML
     public void initialize() {
-        changeView(EAppView.USER_MANAGEMENT);
+        changeView(EAppView.CATEGORY_MANAGEMENT);
     }
 
     private void changeView(EAppView view) {

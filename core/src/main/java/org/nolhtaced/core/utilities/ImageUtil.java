@@ -28,9 +28,12 @@ public class ImageUtil {
         return fileName;
     }
 
-    public static byte[] getImage(String fileName) throws IOException {
+    public static File getImageFile(String fileName) throws IOException {
         String filePath = String.format("%s/%s", IMG_BASE_PATH, fileName);
-        File image = new File(filePath);
-        return Files.readAllBytes(image.toPath());
+        return new File(filePath);
+    }
+
+    public static byte[] getImageBytes(String fileName) throws IOException {
+        return Files.readAllBytes(getImageFile(fileName).toPath());
     }
 }

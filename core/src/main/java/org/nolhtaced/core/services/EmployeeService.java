@@ -1,29 +1,33 @@
 package org.nolhtaced.core.services;
 
 import jakarta.persistence.PersistenceException;
-import org.nolhtaced.core.NolhtacedSession;
+import org.nolhtaced.core.types.NolhtacedSession;
 import org.nolhtaced.core.dao.Dao;
 import org.nolhtaced.core.dao.DaoImpl;
 import org.nolhtaced.core.entities.EmployeeEntity;
-import org.nolhtaced.core.exceptions.EmployeeNotFoundException;
 import org.nolhtaced.core.exceptions.ObjectStillReferencedException;
 import org.nolhtaced.core.exceptions.UserNotFoundException;
 import org.nolhtaced.core.models.Employee;
+import org.nolhtaced.core.utilities.PasswordUtil;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class EmployeeService extends BaseService {
+    private final UserService userService;
     private final Dao<EmployeeEntity, Integer> employeeDao;
 
     public EmployeeService(NolhtacedSession session) {
         super(session);
+        this.userService = new UserService(session);
         this.employeeDao = new DaoImpl<>(EmployeeEntity.class);
     }
 
     public void create(Employee employee) {
         EmployeeEntity employeeEntity = this.mapper.map(employee, EmployeeEntity.class);
+        String hashedPassword = PasswordUtil.generateHash(employee.getPassword());
+        employeeEntity.getUser().setPassword(hashedPassword);
         employeeDao.save(employeeEntity);
     }
 
@@ -63,6 +67,7 @@ public class EmployeeService extends BaseService {
 
         try {
             employeeDao.delete(employeeEntity.get());
+            userService.delete(id);
         } catch (PersistenceException e) {
             throw new ObjectStillReferencedException();
         }

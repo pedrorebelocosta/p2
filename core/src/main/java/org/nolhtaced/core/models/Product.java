@@ -2,6 +2,8 @@ package org.nolhtaced.core.models;
 
 import org.nolhtaced.core.types.Identifiable;
 
+import java.util.Objects;
+
 public class Product extends Identifiable<Integer> {
     private String name;
     private String title;
@@ -86,5 +88,18 @@ public class Product extends Identifiable<Integer> {
 
     public void setImagePath(String image) {
         this.imagePath = image;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Objects.equals(name, product.name) && Objects.equals(title, product.title) && Objects.equals(price, product.price) && Objects.equals(categoryId, product.categoryId) && Objects.equals(availableUnits, product.availableUnits);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, title, price, categoryId, availableUnits, imagePath);
     }
 }

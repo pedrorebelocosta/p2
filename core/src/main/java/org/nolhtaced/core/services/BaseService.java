@@ -1,7 +1,7 @@
 package org.nolhtaced.core.services;
 
 import org.modelmapper.ModelMapper;
-import org.nolhtaced.core.NolhtacedSession;
+import org.nolhtaced.core.types.NolhtacedSession;
 import org.nolhtaced.core.providers.ModelMapperProvider;
 
 public class BaseService {

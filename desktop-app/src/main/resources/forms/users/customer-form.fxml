@@ -5,14 +5,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="326.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nolhtaced.desktop.controllers.forms.users.CustomerFormController">
+<AnchorPane prefHeight="342.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nolhtaced.desktop.controllers.forms.users.CustomerFormController">
 <fx:include fx:id="userForm" source="user-form.fxml" />
-   <TextField layoutX="189.0" layoutY="270.0" />
+   <TextField fx:id="discountRateField" layoutX="189.0" layoutY="270.0" />
    <Label layoutX="189.0" layoutY="253.0" text="Discount Rate (%)" />
-   <TextField layoutX="25.0" layoutY="217.0" prefHeight="25.0" prefWidth="328.0" />
+   <TextField fx:id="addressField" layoutX="25.0" layoutY="217.0" prefHeight="25.0" prefWidth="328.0" />
    <Label layoutX="25.0" layoutY="200.0" text="Address" />
-   <TextField layoutX="25.0" layoutY="270.0" prefHeight="25.0" prefWidth="161.0" />
+   <TextField fx:id="vatNoField" layoutX="25.0" layoutY="270.0" prefHeight="25.0" prefWidth="161.0" />
    <Label layoutX="25.0" layoutY="253.0" text="Vat No." />
-   <Button fx:id="saveBtn" layoutX="303.0" layoutY="304.0" mnemonicParsing="false" text="Save" />
-   <Button fx:id="cancelBtn" cancelButton="true" layoutX="238.0" layoutY="304.0" mnemonicParsing="false" text="Cancel" />
+   <Button fx:id="saveBtn" layoutX="303.0" layoutY="304.0" mnemonicParsing="false" text="Save" onAction="#onClickSave" />
+   <Button fx:id="cancelBtn" cancelButton="true" layoutX="238.0" layoutY="304.0" mnemonicParsing="false" text="Cancel" onAction="#onClickCancel" />
 </AnchorPane>
