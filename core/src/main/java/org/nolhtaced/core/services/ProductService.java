@@ -76,6 +76,13 @@ public class ProductService extends BaseService {
         ).collect(Collectors.toList());
     }
 
+    public List<Product> getAllInStock() {
+        return productDao.getAll().stream()
+                .filter(product -> product.getAvailableUnits() > 0)
+                .map(product -> mapper.map(product, Product.class))
+                .collect(Collectors.toList());
+    }
+
     public void update(Product product) throws ProductNotFoundException, CategoryNotFoundException {
         Optional<ProductEntity> productFromDao = productDao.get(product.getId());
         Optional<CategoryEntity> categoryEntity = categoryDao.get(product.getCategoryId());

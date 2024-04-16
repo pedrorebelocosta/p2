@@ -5,11 +5,9 @@ import org.nolhtaced.core.dao.DaoImpl;
 import org.nolhtaced.core.entities.CustomerEntity;
 import org.nolhtaced.core.entities.EmployeeEntity;
 import org.nolhtaced.core.entities.TransactionEntity;
+import org.nolhtaced.core.enumerators.SellableTypeEnum;
 import org.nolhtaced.core.enumerators.TransactionStateEnum;
-import org.nolhtaced.core.models.Product;
-import org.nolhtaced.core.models.Service;
-import org.nolhtaced.core.models.Transaction;
-import org.nolhtaced.core.models.TransactionItem;
+import org.nolhtaced.core.models.*;
 import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.spi.MappingContext;
@@ -18,6 +16,7 @@ import org.nolhtaced.core.providers.ModelMapperProvider;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TransactionMapper {
     private static final ModelMapper mapper = ModelMapperProvider.getModelMapper();
@@ -45,30 +44,40 @@ public class TransactionMapper {
             Transaction transaction = new Transaction();
 
             transaction.setId(transactionEntity.getId());
-            transaction.setEmployeeId(transactionEntity.getEmployee().getId());
+            // 🔨🔨🔨🔨🔨🔨🔨🔨🔨🔨
+            if (transactionEntity.getEmployee() != null) {
+                transaction.setEmployeeId(transactionEntity.getEmployee().getId());
+            }
+
             transaction.setCustomerId(transactionEntity.getCustomer().getId());
             transaction.setTotalAmount(transactionEntity.getTotalAmount());
             transaction.setCreatedAt(transactionEntity.getCreatedAt());
             transaction.setState(REVERSE_TRANSACTION_STATES.get(transactionEntity.getTransactionState()));
 
-            List<TransactionItem<Product>> acquiredProducts = transactionEntity.getTransactionProducts().stream().map(
-                    transactionProduct -> new TransactionItem<>(
-                            mapper.map(transactionProduct.getProduct(), Product.class),
+            List<ITransactionItem> acquiredProducts = transactionEntity.getTransactionProducts().stream().map(
+                    transactionProduct -> new TransactionItem(
+                            transactionProduct.getProduct().getId(),
+                            transactionProduct.getProduct().getName(),
+                            transactionProduct.getProduct().getTitle(),
                             transactionProduct.getQuantity(),
-                            transactionProduct.getUnitPrice()
+                            transactionProduct.getUnitPrice(),
+                            SellableTypeEnum.PRODUCT
                     )
             ).collect(Collectors.toList());
 
-            List<TransactionItem<Service>> acquiredServices = transactionEntity.getTransactionServices().stream().map(
-                    transactionService -> new TransactionItem<>(
-                            mapper.map(transactionService.getService(), Service.class),
+            List<ITransactionItem> acquiredServices = transactionEntity.getTransactionServices().stream().map(
+                    transactionService -> new TransactionItem(
+                            transactionService.getService().getId(),
+                            transactionService.getService().getName(),
+                            transactionService.getService().getTitle(),
                             transactionService.getQuantity(),
-                            transactionService.getPrice()
+                            transactionService.getPrice(),
+                            SellableTypeEnum.SERVICE
                     )
             ).collect(Collectors.toList());
 
-            transaction.setProducts(acquiredProducts);
-            transaction.setServices(acquiredServices);
+            List<ITransactionItem> items = Stream.concat(acquiredProducts.stream(), acquiredServices.stream()).collect(Collectors.toList());
+            transaction.setItems(items);
 
             return transaction;
         }
@@ -81,12 +90,14 @@ public class TransactionMapper {
             TransactionEntity transactionEntity = new TransactionEntity();
 
             CustomerEntity customerEntity = customerDao.get(transaction.getCustomerId()).orElseThrow();
-            EmployeeEntity employeeEntity = employeeDao.get(transaction.getEmployeeId()).orElseThrow();
+
+            if (transaction.getEmployeeId() != null) {
+                EmployeeEntity employeeEntity = employeeDao.get(transaction.getEmployeeId()).orElseThrow();
+                transactionEntity.setEmployee(employeeEntity);
+            }
 
             transactionEntity.setId(transaction.getId());
             transactionEntity.setCustomer(customerEntity);
-            transactionEntity.setEmployee(employeeEntity);
-
             transactionEntity.setTotalAmount(transaction.getTotalAmount());
             transactionEntity.setCreatedAt(transaction.getCreatedAt());
             transactionEntity.setTransactionState(transaction.getState().toString());

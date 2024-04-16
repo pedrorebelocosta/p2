@@ -9,7 +9,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="222.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nolhtaced.desktop.controllers.forms.users.UserFormController">
+<AnchorPane prefHeight="222.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nolhtaced.desktop.controllers.forms.UserFormController">
    <TextField fx:id="usernameField" layoutX="24.0" layoutY="41.0" />
    <Label layoutX="24.0" layoutY="24.0" text="Username" />
    <TextField fx:id="firstNameField" layoutX="24.0" layoutY="93.0" />

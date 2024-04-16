@@ -10,7 +10,7 @@ import net.synedra.validatorfx.Validator;
 
 import java.util.Optional;
 
-public abstract class BaseFormController<T> {
+public abstract class FormController<T> {
     protected T data;
     protected Stage stage;
     public Validator validator = new Validator();

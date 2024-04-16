@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="342.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nolhtaced.desktop.controllers.forms.users.CustomerFormController">
+<AnchorPane prefHeight="342.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nolhtaced.desktop.controllers.forms.CustomerFormController">
 <fx:include fx:id="userForm" source="user-form.fxml" />
    <TextField fx:id="discountRateField" layoutX="189.0" layoutY="270.0" />
    <Label layoutX="189.0" layoutY="253.0" text="Discount Rate (%)" />

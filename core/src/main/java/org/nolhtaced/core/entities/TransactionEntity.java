@@ -28,10 +28,10 @@ public class TransactionEntity {
     @JoinColumn(name = "employee_id")
     private EmployeeEntity employeeEntity;
 
-    @OneToMany(mappedBy = "transaction")
+    @OneToMany(mappedBy = "transaction", cascade = CascadeType.MERGE)
     private Set<TransactionProductEntity> transactionProductEntities = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "transaction")
+    @OneToMany(mappedBy = "transaction", cascade = CascadeType.MERGE)
     private Set<TransactionServiceEntity> transactionServiceEntities = new LinkedHashSet<>();
 
     @Column(name = "transaction_state", nullable = false, length = Integer.MAX_VALUE)

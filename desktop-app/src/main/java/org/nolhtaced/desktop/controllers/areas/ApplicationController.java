@@ -1,4 +1,4 @@
-package org.nolhtaced.desktop.controllers.screens;
+package org.nolhtaced.desktop.controllers.areas;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -18,11 +18,14 @@ public class ApplicationController {
         VIEWS_LOCATION_MAP.put(EAppView.USER_MANAGEMENT, "/views/user-view.fxml");
         VIEWS_LOCATION_MAP.put(EAppView.PRODUCT_MANAGEMENT, "/views/product-view.fxml");
         VIEWS_LOCATION_MAP.put(EAppView.CATEGORY_MANAGEMENT, "/views/category-view.fxml");
+        VIEWS_LOCATION_MAP.put(EAppView.SERVICE_MANAGEMENT, "/views/service-view.fxml");
+        VIEWS_LOCATION_MAP.put(EAppView.SALES_MANAGEMENT, "/views/sales-view.fxml");
+        VIEWS_LOCATION_MAP.put(EAppView.ORDERS_MANAGEMENT, "/views/order-view.fxml");
     }
 
     @FXML
     public void initialize() {
-        changeView(EAppView.CATEGORY_MANAGEMENT);
+        changeView(EAppView.ORDERS_MANAGEMENT);
     }
 
     private void changeView(EAppView view) {

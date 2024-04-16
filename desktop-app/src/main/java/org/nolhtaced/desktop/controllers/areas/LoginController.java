@@ -1,4 +1,4 @@
-package org.nolhtaced.desktop.controllers.screens;
+package org.nolhtaced.desktop.controllers.areas;
 
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;

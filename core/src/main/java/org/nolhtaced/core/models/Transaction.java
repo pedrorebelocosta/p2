@@ -12,31 +12,28 @@ public class Transaction extends Identifiable<Integer> {
     private Float totalAmount;
     private LocalDate createdAt;
     private TransactionStateEnum state;
-    private List<TransactionItem<Product>> products;
-    private List<TransactionItem<Service>> services;
+    private List<ITransactionItem> items;
 
     public Transaction() {
     }
 
-    public Transaction(Integer customerId, Integer employeeId, Float totalAmount, LocalDate createdAt, TransactionStateEnum state, List<TransactionItem<Product>> products, List<TransactionItem<Service>> services) {
+    public Transaction(Integer customerId, Integer employeeId, Float totalAmount, LocalDate createdAt, TransactionStateEnum state, List<ITransactionItem> items) {
         this.customerId = customerId;
         this.employeeId = employeeId;
         this.totalAmount = totalAmount;
         this.createdAt = createdAt;
         this.state = state;
-        this.products = products;
-        this.services = services;
+        this.items = items;
     }
 
-    public Transaction(Integer id, Integer customerId, Integer employeeId, Float totalAmount, LocalDate createdAt, TransactionStateEnum state, List<TransactionItem<Product>> products, List<TransactionItem<Service>> services) {
+    public Transaction(Integer id, Integer customerId, Integer employeeId, Float totalAmount, LocalDate createdAt, TransactionStateEnum state, List<ITransactionItem> items) {
         super(id);
         this.customerId = customerId;
         this.employeeId = employeeId;
         this.totalAmount = totalAmount;
         this.createdAt = createdAt;
         this.state = state;
-        this.products = products;
-        this.services = services;
+        this.items = items;
     }
 
     public Integer getCustomerId() {
@@ -79,19 +76,11 @@ public class Transaction extends Identifiable<Integer> {
         this.state = state;
     }
 
-    public List<TransactionItem<Product>> getProducts() {
-        return products;
+    public List<ITransactionItem> getItems() {
+        return items;
     }
 
-    public void setProducts(List<TransactionItem<Product>> products) {
-        this.products = products;
-    }
-
-    public List<TransactionItem<Service>> getServices() {
-        return services;
-    }
-
-    public void setServices(List<TransactionItem<Service>> services) {
-        this.services = services;
+    public void setItems(List<ITransactionItem> items) {
+        this.items = items;
     }
 }

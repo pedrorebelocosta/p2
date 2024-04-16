@@ -1,6 +1,9 @@
 package org.nolhtaced.core.services;
 
 import jakarta.persistence.PersistenceException;
+import org.nolhtaced.core.entities.ProductEntity;
+import org.nolhtaced.core.exceptions.ProductNotFoundException;
+import org.nolhtaced.core.models.Product;
 import org.nolhtaced.core.types.NolhtacedSession;
 import org.nolhtaced.core.dao.Dao;
 import org.nolhtaced.core.dao.DaoImpl;
@@ -28,6 +31,16 @@ public class ServiceService extends BaseService {
 
     public Service get(Integer id) throws ServiceNotFoundException {
         Optional<ServiceEntity> serviceEntity = serviceDao.get(id);
+
+        if (serviceEntity.isEmpty()) {
+            throw new ServiceNotFoundException();
+        }
+
+        return mapper.map(serviceEntity.get(), Service.class);
+    }
+
+    public Service getByName(String name) throws ServiceNotFoundException {
+        Optional<ServiceEntity> serviceEntity = serviceDao.getByUniqueAttribute("name", name);
 
         if (serviceEntity.isEmpty()) {
             throw new ServiceNotFoundException();

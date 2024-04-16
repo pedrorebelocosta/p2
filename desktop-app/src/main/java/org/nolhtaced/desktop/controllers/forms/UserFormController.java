@@ -1,22 +1,17 @@
-package org.nolhtaced.desktop.controllers.forms.users;
+package org.nolhtaced.desktop.controllers.forms;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.stage.WindowEvent;
-import net.synedra.validatorfx.Validator;
 import org.nolhtaced.core.enumerators.UserRoleEnum;
 import org.nolhtaced.core.exceptions.UserNotFoundException;
 import org.nolhtaced.core.models.User;
 import org.nolhtaced.core.services.UserService;
 import org.nolhtaced.core.utilities.NolhtacedRegex;
 import org.nolhtaced.desktop.UserSession;
-import org.nolhtaced.desktop.controllers.forms.BaseFormController;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
-public class UserFormController extends BaseFormController<User> {
+public class UserFormController extends FormController<User> {
     @FXML
     public TextField usernameField;
     @FXML
@@ -43,7 +38,7 @@ public class UserFormController extends BaseFormController<User> {
 
     @FXML
     public void initialize() {
-        // TODO isEditing assumes a false value here all the time, try to fix it
+        // TODO isEditing assumes a false value here all the time, try to fix it (is it a problem?)
         activeField.setSelected(true);
         role = UserRoleEnum.ADMINISTRATOR;
         attachFieldValidators();

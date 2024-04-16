@@ -1,4 +1,4 @@
-package org.nolhtaced.desktop.controllers.forms.users;
+package org.nolhtaced.desktop.controllers.forms;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -7,11 +7,10 @@ import org.nolhtaced.core.models.Customer;
 import org.nolhtaced.core.models.User;
 import org.nolhtaced.core.services.CustomerService;
 import org.nolhtaced.desktop.UserSession;
-import org.nolhtaced.desktop.controllers.forms.BaseFormController;
 
 import java.util.ArrayList;
 
-public class CustomerFormController extends BaseFormController<Customer> {
+public class CustomerFormController extends FormController<Customer> {
     @FXML
     private TextField addressField;
     @FXML

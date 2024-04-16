@@ -6,7 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="267.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nolhtaced.desktop.controllers.forms.users.EmployeeFormController">
+<AnchorPane prefHeight="267.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nolhtaced.desktop.controllers.forms.EmployeeFormController">
     <fx:include fx:id="userForm" source="user-form.fxml" />
    <DatePicker fx:id="hireDateField" layoutX="24.0" layoutY="198.0" prefHeight="25.0" prefWidth="163.0" />
    <Label layoutX="24.0" layoutY="180.0" text="Hire Date" />

@@ -8,14 +8,12 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import org.nolhtaced.core.models.User;
-import org.nolhtaced.desktop.controllers.forms.BaseFormController;
+import org.nolhtaced.desktop.controllers.forms.FormController;
 import org.nolhtaced.desktop.enumerators.EAppArea;
 import org.nolhtaced.desktop.exceptions.UIManagerNotInitializedException;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.concurrent.Callable;
 
 public class UIManager {
     private static Class<? extends Application> applicationClass = null;
@@ -23,8 +21,8 @@ public class UIManager {
     private static HashMap<EAppArea, String> SCREENS_LOCATION_MAP = new HashMap<>();
 
     static {
-        SCREENS_LOCATION_MAP.put(EAppArea.LOGIN, "/screens/login/login.fxml");
-        SCREENS_LOCATION_MAP.put(EAppArea.APPLICATION, "/screens/application/application.fxml");
+        SCREENS_LOCATION_MAP.put(EAppArea.LOGIN, "/areas/login.fxml");
+        SCREENS_LOCATION_MAP.put(EAppArea.APPLICATION, "/areas/application.fxml");
     }
 
     private UIManager() {}
@@ -44,16 +42,18 @@ public class UIManager {
         stageInstance.show();
     }
 
+    // TODO handle UIManagerNotInitializedException
     public static Node getViewNode(String file) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(applicationClass.getResource(file));
         return fxmlLoader.load();
     }
 
+    // TODO handle UIManagerNotInitializedException
     public static <T> void openForm(String file, Callback<T, Void> onSuccess) throws IOException {
         Stage modalStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(applicationClass.getResource(file));
         Parent parent = fxmlLoader.load();
-        BaseFormController<T> controller = fxmlLoader.getController();
+        FormController<T> controller = fxmlLoader.getController();
         controller.setFormStage(modalStage);
         controller.setOnSuccessCallback(onSuccess);
         modalStage.setOnCloseRequest(controller.onCloseRequest());
@@ -62,11 +62,12 @@ public class UIManager {
         modalStage.showAndWait();
     }
 
+    // TODO handle UIManagerNotInitializedException
     public static <T> void openForm(String file, T data, Callback<T, Void> onSuccess) throws IOException {
         Stage modalStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(applicationClass.getResource(file));
         Parent parent = fxmlLoader.load();
-        BaseFormController<T> controller = fxmlLoader.getController();
+        FormController<T> controller = fxmlLoader.getController();
         controller.setInitialData(data);
         controller.setFormStage(modalStage);
         controller.setOnSuccessCallback(onSuccess);

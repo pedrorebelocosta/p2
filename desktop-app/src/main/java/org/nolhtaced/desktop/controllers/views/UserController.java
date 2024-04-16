@@ -74,19 +74,19 @@ public class UserController {
     public void onClickAdd(UserRoleEnum type) {
         if (type == UserRoleEnum.ADMINISTRATOR) {
             try {
-                UIManager.<User>openForm("/forms/users/user-form.fxml", unused -> this.populateTable());
+                UIManager.<User>openForm("/forms/user-form.fxml", unused -> this.populateTable());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         } else if (type == UserRoleEnum.CUSTOMER) {
             try {
-                UIManager.openForm("/forms/users/customer-form.fxml", unused -> this.populateTable());
+                UIManager.openForm("/forms/customer-form.fxml", unused -> this.populateTable());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         } else {
             try {
-                UIManager.<Employee>openForm("/forms/users/employee-form.fxml", unused -> this.populateTable());
+                UIManager.<Employee>openForm("/forms/employee-form.fxml", unused -> this.populateTable());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -98,7 +98,7 @@ public class UserController {
 
         if (user.getRole() == UserRoleEnum.ADMINISTRATOR) {
             try {
-                UIManager.openForm("/forms/users/user-form.fxml", user, unused -> this.populateTable());
+                UIManager.openForm("/forms/user-form.fxml", user, unused -> this.populateTable());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -107,7 +107,7 @@ public class UserController {
         else if (user.getRole() == UserRoleEnum.CUSTOMER) {
             try {
                 Customer customer = customerService.get(user.getId());
-                UIManager.openForm("/forms/users/customer-form.fxml", customer, unused -> this.populateTable());
+                UIManager.openForm("/forms/customer-form.fxml", customer, unused -> this.populateTable());
             } catch (UserNotFoundException e) {
                 throw new RuntimeException(e);
             } catch (IOException e) {
@@ -118,7 +118,7 @@ public class UserController {
         else {
             try {
                 Employee employee = employeeService.get(user.getId());
-                UIManager.openForm("/forms/users/employee-form.fxml", employee, unused -> this.populateTable());
+                UIManager.openForm("/forms/employee-form.fxml", employee, unused -> this.populateTable());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             } catch (UserNotFoundException e) {

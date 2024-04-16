@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="509.0" prefWidth="522.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nolhtaced.desktop.controllers.forms.SalesFormController">
+   <children>
+      <Label layoutX="22.0" layoutY="21.0" text="Customer" />
+      <ComboBox fx:id="customerField" layoutX="22.0" layoutY="44.0" prefHeight="26.0" prefWidth="341.0" />
+      <Button layoutX="463.0" layoutY="463.0" mnemonicParsing="false" onAction="#onClickSave" text="Save" />
+      <Button layoutX="395.0" layoutY="463.0" mnemonicParsing="false" onAction="#onClickCancel" text="Cancel" />
+      <TableView fx:id="sellablesTable" layoutX="22.0" layoutY="134.0" prefHeight="284.0" prefWidth="487.0">
+        <columns>
+          <TableColumn fx:id="itemNameCol" prefWidth="75.0" text="Item" visible="false" />
+            <TableColumn fx:id="itemTitleCol" prefWidth="230.0" text="Title" />
+            <TableColumn fx:id="priceCol" prefWidth="79.0" text="Unit Price" />
+          <TableColumn fx:id="quantityCol" prefWidth="64.0" text="Quantity" />
+            <TableColumn fx:id="totalCol" prefWidth="82.0" text="Total" />
+            <TableColumn fx:id="deleteRowCol" prefWidth="31.0" resizable="false" />
+            <TableColumn fx:id="typeCol" prefWidth="31.0" resizable="false" visible="false" />
+        </columns>
+      </TableView>
+      <Label layoutX="22.0" layoutY="431.0" text="Total Cost:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalCostLabel" layoutX="110.0" layoutY="431.0" prefHeight="23.0" prefWidth="106.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="addItemBtn" layoutX="463.0" layoutY="94.0" mnemonicParsing="false" onAction="#onAddItem" prefHeight="25.0" prefWidth="46.0" text="Add" />
+      <ComboBox fx:id="sellableListCombobox" layoutX="22.0" layoutY="94.0" prefHeight="25.0" prefWidth="341.0" />
+      <Label layoutX="22.0" layoutY="77.0" text="Item" />
+      <TextField fx:id="quantityField" layoutX="372.0" layoutY="94.0" prefHeight="25.0" prefWidth="82.0" />
+      <Label layoutX="372.0" layoutY="77.0" text="Quantity" />
+      <Label layoutX="372.0" layoutY="21.0" text="State" />
+      <ComboBox fx:id="transactionStateField" layoutX="372.0" layoutY="45.0" prefHeight="25.0" prefWidth="137.0" />
+   </children>
+</AnchorPane>

@@ -1,6 +1,9 @@
 package org.nolhtaced.core.services;
 
 import jakarta.persistence.PersistenceException;
+import org.nolhtaced.core.enumerators.SellableTypeEnum;
+import org.nolhtaced.core.models.Product;
+import org.nolhtaced.core.models.Service;
 import org.nolhtaced.core.types.NolhtacedSession;
 import org.nolhtaced.core.dao.Dao;
 import org.nolhtaced.core.dao.DaoImpl;
@@ -10,6 +13,7 @@ import org.nolhtaced.core.exceptions.TransactionNotFoundException;
 import org.nolhtaced.core.exceptions.UserNotFoundException;
 import org.nolhtaced.core.models.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -35,40 +39,51 @@ public class TransactionService extends BaseService {
 
         transactionDao.save(transactionEntity);
 
-        Set<TransactionProductEntity> transactionProductEntities = transaction.getProducts().stream().map(
-                transactionProduct -> {
-                    TransactionProductEntity line = new TransactionProductEntity();
-                    ProductEntity product =  productDao.get(transactionProduct.getId()).orElseThrow();
+        Set<TransactionProductEntity> transactionProductEntities = transaction.getItems().stream()
+                .filter(item -> item.getType() == SellableTypeEnum.PRODUCT)
+                .map(
+                        transactionProduct -> {
+                            TransactionProductEntity line = new TransactionProductEntity();
+                            ProductEntity product = productDao.get(transactionProduct.getId()).orElseThrow();
 
-                    line.setId(new TransactionProductIdEntity());
-                    line.setProduct(product);
-                    line.setTransaction(transactionEntity);
-                    line.setQuantity(transactionProduct.getQuantity());
-                    line.setUnitPrice(transactionProduct.getPrice());
+                            line.setId(new TransactionProductIdEntity());
+                            line.setProduct(product);
+                            line.setTransaction(transactionEntity);
+                            line.setQuantity(transactionProduct.getQuantity());
+                            line.setUnitPrice(transactionProduct.getPrice());
 
-                    return line;
-                }
-        ).collect(Collectors.toSet());
+                            return line;
+                        }
+                ).collect(Collectors.toSet());
 
-        Set<TransactionServiceEntity> transactionServiceEntities = transaction.getServices().stream().map(
-                transactionService -> {
-                    TransactionServiceEntity line = new TransactionServiceEntity();
-                    ServiceEntity service =  serviceDao.get(transactionService.getId()).orElseThrow();
+        Set<TransactionServiceEntity> transactionServiceEntities = transaction.getItems().stream()
+                .filter(item -> item.getType() == SellableTypeEnum.SERVICE)
+                .map(
+                        transactionService -> {
+                            TransactionServiceEntity line = new TransactionServiceEntity();
+                            ServiceEntity service =  serviceDao.get(transactionService.getId()).orElseThrow();
 
-                    line.setId(new TransactionServiceIdEntity());
-                    line.setService(service);
-                    line.setTransaction(transactionEntity);
-                    line.setQuantity(transactionService.getQuantity());
-                    line.setPrice(transactionService.getPrice());
+                            line.setId(new TransactionServiceIdEntity());
+                            line.setService(service);
+                            line.setTransaction(transactionEntity);
+                            line.setQuantity(transactionService.getQuantity());
+                            line.setPrice(transactionService.getPrice());
 
-                    return line;
-                }
-        ).collect(Collectors.toSet());
+                            return line;
+                        }
+                ).collect(Collectors.toSet());
 
         transactionEntity.setTransactionProducts(transactionProductEntities);
         transactionEntity.setTransactionServices(transactionServiceEntities);
 
         transactionDao.update(transactionEntity);
+
+        // SUBTRACT FROM PRODUCT STOCK WHEN SELLING
+        transactionProductEntities.forEach(transactionProduct -> {
+            ProductEntity product = transactionProduct.getProduct();
+            product.setAvailableUnits(product.getAvailableUnits() - transactionProduct.getQuantity().intValue());
+            productDao.update(product);
+        });
     }
 
     public Transaction get(Integer id) throws TransactionNotFoundException {
@@ -87,6 +102,13 @@ public class TransactionService extends BaseService {
         ).collect(Collectors.toList());
     }
 
+    public List<Transaction> getAllOnlineOrders() {
+        return transactionDao.getAll().stream()
+                .filter(transaction -> transaction.getEmployee() == null)
+                .map(transaction -> mapper.map(transaction, Transaction.class))
+                .collect(Collectors.toList());
+    }
+
     public void update(Transaction transaction) throws TransactionNotFoundException, UserNotFoundException {
         Optional<TransactionEntity> transactionFromDao = transactionDao.get(transaction.getId());
 
@@ -102,7 +124,9 @@ public class TransactionService extends BaseService {
 
         TransactionEntity transactionEntity = mapper.map(transaction, TransactionEntity.class);
 
-        Set<TransactionProductEntity> transactionProductEntities = transaction.getProducts().stream().map(
+        Set<TransactionProductEntity> transactionProductEntities = transaction.getItems().stream()
+            .filter(item -> item.getType() == SellableTypeEnum.PRODUCT)
+            .map(
                 transactionProduct -> {
                     TransactionProductEntity line = new TransactionProductEntity();
                     ProductEntity product =  productDao.get(transactionProduct.getId()).orElseThrow();
@@ -114,10 +138,12 @@ public class TransactionService extends BaseService {
                     line.setUnitPrice(transactionProduct.getPrice());
 
                     return line;
-                }
+            }
         ).collect(Collectors.toSet());
 
-        Set<TransactionServiceEntity> transactionServiceEntities = transaction.getServices().stream().map(
+        Set<TransactionServiceEntity> transactionServiceEntities = transaction.getItems().stream()
+            .filter(item -> item.getType() == SellableTypeEnum.SERVICE)
+            .map(
                 transactionService -> {
                     TransactionServiceEntity line = new TransactionServiceEntity();
                     ServiceEntity service =  serviceDao.get(transactionService.getId()).orElseThrow();

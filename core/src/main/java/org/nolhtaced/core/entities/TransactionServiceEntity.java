@@ -63,5 +63,4 @@ public class TransactionServiceEntity {
     public void setPrice(Float price) {
         this.price = price;
     }
-
 }

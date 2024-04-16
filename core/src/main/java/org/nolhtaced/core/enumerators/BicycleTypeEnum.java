@@ -1,5 +1,7 @@
 package org.nolhtaced.core.enumerators;
 
+// https://www.baeldung.com/java-enum-values
+// try to make this cleaner
 public enum BicycleTypeEnum {
     ROAD {
         @Override
@@ -18,5 +20,5 @@ public enum BicycleTypeEnum {
         public String toString() {
             return "G";
         }
-    }
+    };
 }

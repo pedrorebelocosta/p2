@@ -1,4 +1,4 @@
-package org.nolhtaced.desktop.controllers.forms.products;
+package org.nolhtaced.desktop.controllers.forms;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -15,7 +15,6 @@ import org.nolhtaced.core.services.CategoryService;
 import org.nolhtaced.core.services.ProductService;
 import org.nolhtaced.core.utilities.ImageUtil;
 import org.nolhtaced.desktop.UserSession;
-import org.nolhtaced.desktop.controllers.forms.BaseFormController;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,7 +23,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-public class ProductFormController extends BaseFormController<Product> {
+public class ProductFormController extends FormController<Product> {
     @FXML
     public TextField nameField;
     @FXML
@@ -179,7 +178,6 @@ public class ProductFormController extends BaseFormController<Product> {
             })
             .decorates(availableUnitsField);
 
-        // CHECK HOW TO MAKE THE IMAGE MANDATORY
         validator.createCheck()
             .dependsOn("image", imageViewField.imageProperty())
             .withMethod(context -> {

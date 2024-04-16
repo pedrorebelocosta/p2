@@ -1,27 +1,19 @@
-package org.nolhtaced.desktop.controllers.forms.users;
+package org.nolhtaced.desktop.controllers.forms;
 
-import javafx.beans.binding.Bindings;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.stage.WindowEvent;
 import javafx.util.StringConverter;
 import org.nolhtaced.core.enumerators.UserRoleEnum;
 import org.nolhtaced.core.exceptions.UserNotFoundException;
-import org.nolhtaced.core.models.Customer;
 import org.nolhtaced.core.models.Employee;
 import org.nolhtaced.core.models.User;
 import org.nolhtaced.core.services.EmployeeService;
 import org.nolhtaced.desktop.UserSession;
-import org.nolhtaced.desktop.controllers.forms.BaseFormController;
 
 import java.time.LocalDate;
 
-public class EmployeeFormController extends BaseFormController<Employee> {
+public class EmployeeFormController extends FormController<Employee> {
     @FXML
     private ComboBox<UserRoleEnum> roleField;
     @FXML

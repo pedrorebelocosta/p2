@@ -9,7 +9,7 @@ public class TransactionProductEntity {
     private TransactionProductIdEntity id;
 
     @MapsId("transactionId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.MERGE)
     @JoinColumn(name = "transaction_id", nullable = false)
     private TransactionEntity transaction;
 
@@ -63,5 +63,4 @@ public class TransactionProductEntity {
     public void setUnitPrice(Float unitPrice) {
         this.unitPrice = unitPrice;
     }
-
 }

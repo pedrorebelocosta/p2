@@ -1,20 +1,22 @@
 package org.nolhtaced.core.models;
 
+import org.nolhtaced.core.enumerators.SellableTypeEnum;
 import org.nolhtaced.core.types.Identifiable;
 
-public class RepairItem<T extends Identifiable<Integer>> {
+public class RepairItem<T extends Identifiable<Integer>> implements IRepairItem {
     private Integer id;
     private Float quantity;
-    private final T item;
+    private SellableTypeEnum type;
 
     public RepairItem(T item, Float quantity) {
         this.id = item.getId();
         this.quantity = quantity;
-        this.item = item;
     }
 
-    public T getItem() {
-        return this.item;
+    public RepairItem(T item, Float quantity, SellableTypeEnum type) {
+        this.id = item.getId();
+        this.quantity = quantity;
+        this.type = type;
     }
 
     public Integer getId() {
@@ -31,5 +33,15 @@ public class RepairItem<T extends Identifiable<Integer>> {
 
     public void setQuantity(Float quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public SellableTypeEnum getType() {
+        return type;
+    }
+
+    @Override
+    public void setType(SellableTypeEnum type) {
+        this.type = type;
     }
 }

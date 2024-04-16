@@ -55,7 +55,7 @@ public class ProductController {
 
     public void onClickAdd() {
         try {
-            UIManager.openForm("/forms/products/product-form.fxml", unused -> this.populateTable());
+            UIManager.openForm("/forms/product-form.fxml", unused -> this.populateTable());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -89,7 +89,7 @@ public class ProductController {
         Product product = tableView.getSelectionModel().getSelectedItem();
 
         try {
-            UIManager.openForm("/forms/products/product-form.fxml", product, unused -> this.populateTable());
+            UIManager.openForm("/forms/product-form.fxml", product, unused -> this.populateTable());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

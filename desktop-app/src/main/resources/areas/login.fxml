@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nolhtaced.desktop.controllers.screens.LoginController">
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nolhtaced.desktop.controllers.areas.LoginController">
    <HBox alignment="CENTER">
       <AnchorPane prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -22,7 +22,7 @@
             <Label layoutX="258.0" layoutY="349.0" text="Not registered?" />
             <ImageView fitHeight="65.0" fitWidth="200.0" layoutX="202.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/logo.png" />
+                  <Image url="@../images/logo.png" />
                </image>
             </ImageView>
             <Label layoutX="129.0" layoutY="371.0" text="Request account creation with your manager or a system administrator." />
