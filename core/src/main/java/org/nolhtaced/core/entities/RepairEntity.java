@@ -88,5 +88,4 @@ public class RepairEntity {
     public void setRepairServices(Set<RepairServiceEntity> repairServiceEntities) {
         this.repairServiceEntities = repairServiceEntities;
     }
-
 }

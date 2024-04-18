@@ -46,7 +46,10 @@ public class TransactionService extends BaseService {
                             TransactionProductEntity line = new TransactionProductEntity();
                             ProductEntity product = productDao.get(transactionProduct.getId()).orElseThrow();
 
-                            line.setId(new TransactionProductIdEntity());
+                            TransactionProductIdEntity transactionProductIdEntity = new TransactionProductIdEntity();
+                            transactionProductIdEntity.setProductId(product.getId());
+                            transactionProductIdEntity.setTransactionId(transactionEntity.getId());
+                            line.setId(transactionProductIdEntity);
                             line.setProduct(product);
                             line.setTransaction(transactionEntity);
                             line.setQuantity(transactionProduct.getQuantity());
@@ -63,7 +66,10 @@ public class TransactionService extends BaseService {
                             TransactionServiceEntity line = new TransactionServiceEntity();
                             ServiceEntity service =  serviceDao.get(transactionService.getId()).orElseThrow();
 
-                            line.setId(new TransactionServiceIdEntity());
+                            TransactionServiceIdEntity transactionServiceIdEntity = new TransactionServiceIdEntity();
+                            transactionServiceIdEntity.setServiceId(service.getId());
+                            transactionServiceIdEntity.setTransactionId(transactionEntity.getId());
+                            line.setId(transactionServiceIdEntity);
                             line.setService(service);
                             line.setTransaction(transactionEntity);
                             line.setQuantity(transactionService.getQuantity());
@@ -130,8 +136,10 @@ public class TransactionService extends BaseService {
                 transactionProduct -> {
                     TransactionProductEntity line = new TransactionProductEntity();
                     ProductEntity product =  productDao.get(transactionProduct.getId()).orElseThrow();
-
-                    line.setId(new TransactionProductIdEntity());
+                    TransactionProductIdEntity transactionProductIdEntity = new TransactionProductIdEntity();
+                    transactionProductIdEntity.setProductId(product.getId());
+                    transactionProductIdEntity.setTransactionId(transactionEntity.getId());
+                    line.setId(transactionProductIdEntity);
                     line.setProduct(product);
                     line.setTransaction(transactionEntity);
                     line.setQuantity(transactionProduct.getQuantity());
@@ -147,8 +155,10 @@ public class TransactionService extends BaseService {
                 transactionService -> {
                     TransactionServiceEntity line = new TransactionServiceEntity();
                     ServiceEntity service =  serviceDao.get(transactionService.getId()).orElseThrow();
-
-                    line.setId(new TransactionServiceIdEntity());
+                    TransactionServiceIdEntity transactionServiceIdEntity = new TransactionServiceIdEntity();
+                    transactionServiceIdEntity.setServiceId(service.getId());
+                    transactionServiceIdEntity.setTransactionId(transactionEntity.getId());
+                    line.setId(transactionServiceIdEntity);
                     line.setService(service);
                     line.setTransaction(transactionEntity);
                     line.setQuantity(transactionService.getQuantity());

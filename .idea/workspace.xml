@@ -4,57 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="631cfad4-049a-4269-bcc0-fd8c2e956814" name="Changes" comment="second commit with a bit more work on crud">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/enumerators/SellableTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/IRepairItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/ITransactionItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/SalesFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/ServiceFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/TransactionStateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/SalesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/ServiceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/sales-form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/service-form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/transaction-state-form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/views/order-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/views/sales-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/views/service-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="631cfad4-049a-4269-bcc0-fd8c2e956814" name="Changes" comment="some more work on this thing that I'm trying to put together as I figure out the structure and meaning of life">
+      <change afterPath="$PROJECT_DIR$/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/RepairFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/TransactionDetailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/RepairController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/helpers/ComboBoxHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/repair-form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/transaction-detail-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/views/customer-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/views/repair-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionProductEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionServiceEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionServiceEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/enumerators/BicycleTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/enumerators/BicycleTypeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/TransactionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/TransactionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/RepairEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/RepairEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/RepairMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/RepairMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/IRepairItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/IRepairItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/Repair.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/Repair.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/RepairItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/RepairItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/TransactionItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/TransactionItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/ServiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/ServiceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/RepairService.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/RepairService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/TransactionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/BaseFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/FormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/categories/CategoryFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/CategoryFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/products/ProductFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/ProductFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/users/CustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/CustomerFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/users/EmployeeFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/EmployeeFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/users/UserFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/UserFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/screens/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/areas/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/screens/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/areas/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/UserSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/UserSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/areas/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/areas/ApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/SalesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/SalesController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/enumerators/EAppView.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/enumerators/EAppView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/utilities/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/utilities/UIManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/categories/category-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/category-form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/products/product-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/product-form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/users/customer-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/customer-form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/users/employee-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/employee-form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/users/user-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/forms/user-form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/resources/screens/application/application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/areas/application.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/resources/screens/login/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/areas/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/resources/areas/application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/areas/application.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/resources/views/order-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/views/order-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/resources/views/sales-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/views/sales-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +55,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;pedrorebelocosta&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="b6edad8a-ef5c-47ea-bb52-c13374c47500" />
+        <option name="url" value="https://github.com/pedrorebelocosta/p2.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -340,7 +333,8 @@
       <workItem from="1712781770870" duration="51000" />
       <workItem from="1712781836780" duration="32299000" />
       <workItem from="1713169282647" duration="24576000" />
-      <workItem from="1713255318763" duration="6959000" />
+      <workItem from="1713255318763" duration="20349000" />
+      <workItem from="1713339293076" duration="28983000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit with &quot;some work&quot;">
       <option name="closed" value="true" />
@@ -358,7 +352,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712764467142</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="some more work on this thing that I'm trying to put together as I figure out the structure and meaning of life">
+      <option name="closed" value="true" />
+      <created>1713263858993</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713263858993</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,6 +380,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit with &quot;some work&quot;" />
     <MESSAGE value="second commit with a bit more work on crud" />
-    <option name="LAST_COMMIT_MESSAGE" value="second commit with a bit more work on crud" />
+    <MESSAGE value="some more work on this thing that I'm trying to put together as I figure out the structure and meaning of life" />
+    <option name="LAST_COMMIT_MESSAGE" value="some more work on this thing that I'm trying to put together as I figure out the structure and meaning of life" />
   </component>
 </project>

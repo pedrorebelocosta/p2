@@ -1,5 +1,6 @@
 package org.nolhtaced.desktop.controllers.views;
 
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
@@ -40,9 +41,9 @@ public class SalesController {
     @FXML
     public Button addBtn;
     @FXML
-    public Button editBtn;
+    public Button transitionStateBtn;
     @FXML
-    public Button deleteBtn;
+    public Button viewDetailBtn;
 
     private TransactionService transactionService;
     private CustomerService customerService;
@@ -61,9 +62,8 @@ public class SalesController {
 
     @FXML
     public void initialize() {
-        deleteBtn.setVisible(false);
-        editBtn.setVisible(false);
-
+        transitionStateBtn.disableProperty().bind(Bindings.isNull(tableView.getSelectionModel().selectedItemProperty()));
+        viewDetailBtn.disableProperty().bind(Bindings.isNull(tableView.getSelectionModel().selectedItemProperty()));
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
 
         // TODO this could be optimized...
@@ -152,11 +152,12 @@ public class SalesController {
         return null;
     }
 
-    public void onClickEdit() {
-
-    }
-
-    public void onClickDelete() {
-
+    public void onClickViewDetails() {
+        Transaction t = tableView.getSelectionModel().getSelectedItem();
+        try {
+            UIManager.openForm("/forms/transaction-detail-view.fxml", t, unused -> null);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -1,6 +1,7 @@
 package org.nolhtaced.core.services;
 
 import jakarta.persistence.PersistenceException;
+import org.nolhtaced.core.enumerators.SellableTypeEnum;
 import org.nolhtaced.core.types.NolhtacedSession;
 import org.nolhtaced.core.dao.Dao;
 import org.nolhtaced.core.dao.DaoImpl;
@@ -48,30 +49,39 @@ public class RepairService extends BaseService {
 
         repairDao.save(repairEntity);
 
-        Set<RepairProductEntity> repairProductEntities = repair.getProductsUsed().stream().map(
-                repairProduct -> {
+        Set<RepairProductEntity> repairProductEntities = repair.getSellablesUsed().stream()
+                .filter(repairSellable -> repairSellable.getType() == SellableTypeEnum.PRODUCT)
+                .map(repairSellable -> {
                     RepairProductEntity line = new RepairProductEntity();
-                    ProductEntity product = productDao.get(repairProduct.getId()).orElseThrow();
+                    ProductEntity product = productDao.get(repairSellable.getId()).orElseThrow();
 
-                    line.setId(new RepairProductIdEntity());
+                    RepairProductIdEntity repairProductIdEntity = new RepairProductIdEntity();
+                    repairProductIdEntity.setProductId(product.getId());
+                    repairProductIdEntity.setRepairId(repairEntity.getId());
+                    line.setId(repairProductIdEntity);
                     line.setProduct(product);
                     line.setRepair(repairEntity);
-                    line.setQuantity(repairProduct.getQuantity());
+                    line.setQuantity(repairSellable.getQuantity());
 
                     return line;
                 }
         ).collect(Collectors.toSet());
 
-        Set<RepairServiceEntity> repairServiceEntities = repair.getServicesUsed().stream().map(repairService -> {
-            RepairServiceEntity line = new RepairServiceEntity();
-            ServiceEntity service = serviceDao.get(repairService.getId()).orElseThrow();
+        Set<RepairServiceEntity> repairServiceEntities = repair.getSellablesUsed().stream()
+                .filter(repairSellable -> repairSellable.getType() == SellableTypeEnum.SERVICE)
+                .map(repairService -> {
+                    RepairServiceEntity line = new RepairServiceEntity();
+                    ServiceEntity service = serviceDao.get(repairService.getId()).orElseThrow();
 
-            line.setId(new RepairServiceIdEntity());
-            line.setService(service);
-            line.setRepair(repairEntity);
-            line.setQuantity(repairService.getQuantity());
+                    RepairServiceIdEntity repairServiceIdEntity = new RepairServiceIdEntity();
+                    repairServiceIdEntity.setServiceId(service.getId());
+                    repairServiceIdEntity.setRepairId(repairEntity.getId());
+                    line.setId(repairServiceIdEntity);
+                    line.setService(service);
+                    line.setRepair(repairEntity);
+                    line.setQuantity(repairService.getQuantity());
 
-            return line;
+                    return line;
         }).collect(Collectors.toSet());
 
         repairEntity.setRepairProducts(repairProductEntities);
@@ -118,29 +128,40 @@ public class RepairService extends BaseService {
 
         RepairEntity repairEntity = this.mapper.map(repair, RepairEntity.class);
 
-        Set<RepairProductEntity> repairProductEntities = repair.getProductsUsed().stream().map(repairProduct -> {
-            RepairProductEntity line = new RepairProductEntity();
-            ProductEntity product = productDao.get(repairProduct.getId()).orElseThrow();
+        Set<RepairProductEntity> repairProductEntities = repair.getSellablesUsed().stream()
+                .filter(repairSellable -> repairSellable.getType() == SellableTypeEnum.PRODUCT)
+                .map(repairSellable -> {
+                            RepairProductEntity line = new RepairProductEntity();
+                            ProductEntity product = productDao.get(repairSellable.getId()).orElseThrow();
 
-            line.setId(new RepairProductIdEntity());
-            line.setProduct(product);
-            line.setRepair(repairEntity);
-            line.setQuantity(repairProduct.getQuantity());
+                            RepairProductIdEntity repairProductIdEntity = new RepairProductIdEntity();
+                            repairProductIdEntity.setProductId(product.getId());
+                            repairProductIdEntity.setRepairId(repairEntity.getId());
+                            line.setId(repairProductIdEntity);
+                            line.setProduct(product);
+                            line.setRepair(repairEntity);
+                            line.setQuantity(repairSellable.getQuantity());
 
-            return line;
-        }).collect(Collectors.toSet());
+                            return line;
+                        }
+                ).collect(Collectors.toSet());
 
-        Set<RepairServiceEntity> repairServiceEntities = repair.getServicesUsed().stream().map(repairService -> {
-            RepairServiceEntity line = new RepairServiceEntity();
-            ServiceEntity service = serviceDao.get(repairService.getId()).orElseThrow();
+        Set<RepairServiceEntity> repairServiceEntities = repair.getSellablesUsed().stream()
+                .filter(repairSellable -> repairSellable.getType() == SellableTypeEnum.SERVICE)
+                .map(repairService -> {
+                    RepairServiceEntity line = new RepairServiceEntity();
+                    ServiceEntity service = serviceDao.get(repairService.getId()).orElseThrow();
 
-            line.setId(new RepairServiceIdEntity());
-            line.setService(service);
-            line.setRepair(repairEntity);
-            line.setQuantity(repairService.getQuantity());
+                    RepairServiceIdEntity repairServiceIdEntity = new RepairServiceIdEntity();
+                    repairServiceIdEntity.setServiceId(service.getId());
+                    repairServiceIdEntity.setRepairId(repairEntity.getId());
+                    line.setId(repairServiceIdEntity);
+                    line.setService(service);
+                    line.setRepair(repairEntity);
+                    line.setQuantity(repairService.getQuantity());
 
-            return line;
-        }).collect(Collectors.toSet());
+                    return line;
+                }).collect(Collectors.toSet());
 
         repairEntity.setRepairProducts(repairProductEntities);
         repairEntity.setRepairServices(repairServiceEntities);

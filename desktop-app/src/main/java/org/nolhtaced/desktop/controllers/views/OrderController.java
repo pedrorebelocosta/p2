@@ -35,13 +35,9 @@ public class OrderController {
     public TableColumn<Transaction, Float> totalCol;
 
     @FXML
-    public Button addBtn;
-    @FXML
-    public Button editBtn;
-    @FXML
-    public Button deleteBtn;
-    @FXML
     public Button transitionStateBtn;
+    @FXML
+    public Button viewDetailBtn;
 
     private TransactionService transactionService;
     private CustomerService customerService;
@@ -55,11 +51,9 @@ public class OrderController {
 
     @FXML
     public void initialize() {
-        deleteBtn.setVisible(false);
-        editBtn.setVisible(false);
-        addBtn.setVisible(false);
-        transitionStateBtn.disableProperty().bind(Bindings.isNull(tableView.getSelectionModel().selectedItemProperty()));
 
+        transitionStateBtn.disableProperty().bind(Bindings.isNull(tableView.getSelectionModel().selectedItemProperty()));
+        viewDetailBtn.disableProperty().bind(Bindings.isNull(tableView.getSelectionModel().selectedItemProperty()));
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
 
         // TODO this could be optimized...
@@ -96,8 +90,13 @@ public class OrderController {
         return null;
     }
 
-    public void onClickAdd() {
-
+    public void onClickViewDetails() {
+        Transaction t = tableView.getSelectionModel().getSelectedItem();
+        try {
+            UIManager.openForm("/forms/transaction-detail-view.fxml", t, unused -> null);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void onClickStateTransition() {

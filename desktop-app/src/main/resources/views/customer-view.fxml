@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane prefHeight="493.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nolhtaced.desktop.controllers.views.CustomerController">
+   <center>
+      <TableView fx:id="tableView" prefHeight="446.0" prefWidth="614.0" BorderPane.alignment="CENTER">
+         <columns>
+            <TableColumn fx:id="idCol" text="ID" visible="false" />
+            <TableColumn fx:id="usernameCol" text="Username" visible="false" />
+            <TableColumn fx:id="firstNameCol" text="First Name" />
+            <TableColumn fx:id="lastNameCol" text="Last Name" />
+            <TableColumn fx:id="dateOfBirthCol" text="Date Of Birth" />
+            <TableColumn fx:id="roleCol" text="Role" visible="false" />
+            <TableColumn fx:id="activeCol" text="Active" />
+         </columns>
+      </TableView>
+   </center>
+   <top>
+      <HBox alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0" prefWidth="610.0" spacing="8.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="editCustomerBtn" mnemonicParsing="false" onAction="#onClickEdit" text="Edit" />
+            <Button fx:id="newCustomerBtn" mnemonicParsing="false" onAction="#onClickAdd" text="New Customer" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+   </top>
+</BorderPane>

@@ -80,7 +80,7 @@ public class UserController {
             }
         } else if (type == UserRoleEnum.CUSTOMER) {
             try {
-                UIManager.openForm("/forms/customer-form.fxml", unused -> this.populateTable());
+                UIManager.<Customer>openForm("/forms/customer-form.fxml", unused -> this.populateTable());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

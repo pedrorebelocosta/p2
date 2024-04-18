@@ -58,6 +58,7 @@ public class UIManager {
         controller.setOnSuccessCallback(onSuccess);
         modalStage.setOnCloseRequest(controller.onCloseRequest());
         modalStage.setScene(new Scene(parent));
+        modalStage.setResizable(false);
         modalStage.initModality(Modality.APPLICATION_MODAL);
         modalStage.showAndWait();
     }
@@ -73,6 +74,7 @@ public class UIManager {
         controller.setOnSuccessCallback(onSuccess);
         modalStage.setOnCloseRequest(controller.onCloseRequest());
         modalStage.setScene(new Scene(parent));
+        modalStage.setResizable(false);
         modalStage.initModality(Modality.APPLICATION_MODAL);
         modalStage.showAndWait();
     }

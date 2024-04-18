@@ -12,9 +12,8 @@
       <HBox alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0" prefWidth="610.0" spacing="8.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="transitionStateBtn" mnemonicParsing="false" onAction="#onClickStateTransition" text="Transition State" />
-            <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#onClickDelete" text="Delete" />
-            <Button fx:id="editBtn" mnemonicParsing="false" onAction="#onClickEdit" text="Edit" />
-            <Button fx:id="addBtn" mnemonicParsing="false" onAction="#onClickAdd" text="Add" />
+            <Button fx:id="viewDetailBtn" mnemonicParsing="false" onAction="#onClickViewDetails" text="View Details" />
+            <Button fx:id="addBtn" mnemonicParsing="false" onAction="#onClickAdd" text="New Sale" />
          </children>
          <opaqueInsets>
             <Insets />

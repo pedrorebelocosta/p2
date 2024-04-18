@@ -5,19 +5,19 @@ import org.nolhtaced.core.dao.DaoImpl;
 import org.nolhtaced.core.entities.CustomerBicycleEntity;
 import org.nolhtaced.core.entities.EmployeeEntity;
 import org.nolhtaced.core.entities.RepairEntity;
-import org.nolhtaced.core.models.Product;
-import org.nolhtaced.core.models.Repair;
+import org.nolhtaced.core.enumerators.SellableTypeEnum;
+import org.nolhtaced.core.models.*;
 import org.nolhtaced.core.enumerators.RepairStateEnum;
-import org.nolhtaced.core.models.RepairItem;
-import org.nolhtaced.core.models.Service;
 import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.spi.MappingContext;
 import org.nolhtaced.core.providers.ModelMapperProvider;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class RepairMapper {
     private static final ModelMapper mapper = ModelMapperProvider.getModelMapper();
@@ -49,22 +49,28 @@ public class RepairMapper {
             repair.setAssignedEmployeeId(repairEntity.getAssignedEmployee().getId());
             repair.setState(REVERSE_REPAIR_STATES.get(repairEntity.getCurrentState()));
 
-            List<RepairItem<Product>> productsUsed = repairEntity.getRepairProducts().stream().map(
-                    repairProduct -> new RepairItem<>(
-                            mapper.map(repairProduct.getProduct(), Product.class),
-                            repairProduct.getQuantity()
+            List<IRepairItem> productsUsed = repairEntity.getRepairProducts().stream().map(
+                    repairProduct -> new RepairItem(
+                            repairProduct.getProduct().getId(),
+                            repairProduct.getProduct().getName(),
+                            repairProduct.getProduct().getTitle(),
+                            repairProduct.getQuantity(),
+                            SellableTypeEnum.PRODUCT
                     )
             ).collect(Collectors.toList());
 
-            List<RepairItem<Service>> servicesUsed = repairEntity.getRepairServices().stream().map(
-                    repairService -> new RepairItem<>(
-                            mapper.map(repairService.getService(), Service.class),
-                            repairService.getQuantity()
+            List<IRepairItem> servicesUsed = repairEntity.getRepairServices().stream().map(
+                    repairService -> new RepairItem(
+                            repairService.getService().getId(),
+                            repairService.getService().getName(),
+                            repairService.getService().getTitle(),
+                            repairService.getQuantity(),
+                            SellableTypeEnum.SERVICE
                     )
             ).collect(Collectors.toList());
 
-            repair.setProductsUsed(productsUsed);
-            repair.setServicesUsed(servicesUsed);
+            List<IRepairItem> concatenatedList = Stream.concat(productsUsed.stream(), servicesUsed.stream()).collect(Collectors.toList());
+            repair.setSellablesUsed(concatenatedList);
 
             return repair;
         }

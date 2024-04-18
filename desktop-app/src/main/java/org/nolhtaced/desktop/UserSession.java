@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public class UserSession implements NolhtacedSession {
     private static UserSession session;
-    private User currentUser;
+    private static User currentUser;
 
     private UserSession() {}
 

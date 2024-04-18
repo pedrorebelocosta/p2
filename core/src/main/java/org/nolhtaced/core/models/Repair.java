@@ -4,35 +4,33 @@ import org.nolhtaced.core.enumerators.RepairStateEnum;
 import org.nolhtaced.core.types.Identifiable;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Repair extends Identifiable<Integer> {
     private Integer bicycleId;
     private RepairStateEnum state;
     private String notes;
     private Integer assignedEmployeeId;
-    private List<RepairItem<Product>> productsUsed;
-    private List<RepairItem<Service>> servicesUsed;
+    private List<IRepairItem> sellablesUsed;
 
     public Repair() {
     }
 
-    public Repair(Integer bicycleId, RepairStateEnum state, String notes, Integer assignedEmployeeId, List<RepairItem<Product>> productsUsed, List<RepairItem<Service>> servicesUsed) {
+    public Repair(Integer bicycleId, RepairStateEnum state, String notes, Integer assignedEmployeeId, List<IRepairItem> sellablesUsed) {
         this.bicycleId = bicycleId;
         this.state = state;
         this.notes = notes;
         this.assignedEmployeeId = assignedEmployeeId;
-        this.productsUsed = productsUsed;
-        this.servicesUsed = servicesUsed;
+        this.sellablesUsed = sellablesUsed;
     }
 
-    public Repair(Integer id, Integer bicycleId, RepairStateEnum state, String notes,Integer assignedEmployeeId, List<RepairItem<Product>> productsUsed, List<RepairItem<Service>> servicesUsed) {
+    public Repair(Integer id, Integer bicycleId, RepairStateEnum state, String notes,Integer assignedEmployeeId, List<IRepairItem> sellablesUsed) {
         super(id);
         this.bicycleId = bicycleId;
         this.state = state;
         this.notes = notes;
         this.assignedEmployeeId = assignedEmployeeId;
-        this.productsUsed = productsUsed;
-        this.servicesUsed = servicesUsed;
+        this.sellablesUsed = sellablesUsed;
     }
 
     public Integer getBicycleId() {
@@ -67,19 +65,24 @@ public class Repair extends Identifiable<Integer> {
         this.assignedEmployeeId = assignedEmployeeId;
     }
 
-    public List<RepairItem<Product>> getProductsUsed() {
-        return productsUsed;
+    public List<IRepairItem> getSellablesUsed() {
+        return sellablesUsed;
     }
 
-    public void setProductsUsed(List<RepairItem<Product>> productsUsed) {
-        this.productsUsed = productsUsed;
+    public void setSellablesUsed(List<IRepairItem> sellablesUsed) {
+        this.sellablesUsed = sellablesUsed;
     }
 
-    public List<RepairItem<Service>> getServicesUsed() {
-        return servicesUsed;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Repair repair = (Repair) o;
+        return Objects.equals(bicycleId, repair.bicycleId) && state == repair.state && Objects.equals(notes, repair.notes) && Objects.equals(assignedEmployeeId, repair.assignedEmployeeId) && Objects.equals(sellablesUsed, repair.sellablesUsed);
     }
 
-    public void setServicesUsed(List<RepairItem<Service>> servicesUsed) {
-        this.servicesUsed = servicesUsed;
+    @Override
+    public int hashCode() {
+        return Objects.hash(bicycleId, state, notes, assignedEmployeeId, sellablesUsed);
     }
 }
