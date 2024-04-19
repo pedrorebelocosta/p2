@@ -15,6 +15,8 @@ import org.nolhtaced.core.models.User;
 import org.nolhtaced.core.services.CustomerService;
 import org.nolhtaced.core.services.UserService;
 import org.nolhtaced.desktop.UserSession;
+import org.nolhtaced.desktop.enumerators.EAppForm;
+import org.nolhtaced.desktop.exceptions.UIManagerNotInitializedException;
 import org.nolhtaced.desktop.utilities.UIManager;
 
 import java.io.IOException;
@@ -59,20 +61,20 @@ public class CustomerController {
         populateTable();
     }
 
-    public void onClickAdd() {
+    public void onClickAdd() throws UIManagerNotInitializedException {
         try {
-            UIManager.openForm("/forms/customer-form.fxml", unused -> this.populateTable());
+            UIManager.openForm(EAppForm.CUSTOMER_FORM, unused -> this.populateTable());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void onClickEdit() {
+    public void onClickEdit() throws UIManagerNotInitializedException {
         Customer tableCustomer = tableView.getSelectionModel().getSelectedItem();
 
         try {
             Customer customer = customerService.get(tableCustomer.getId());
-            UIManager.openForm("/forms/customer-form.fxml", customer, unused -> this.populateTable());
+            UIManager.openForm(EAppForm.CUSTOMER_FORM, customer, unused -> this.populateTable());
         } catch (UserNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {

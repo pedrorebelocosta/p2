@@ -14,6 +14,8 @@ import org.nolhtaced.core.models.User;
 import org.nolhtaced.core.services.CustomerService;
 import org.nolhtaced.core.services.EmployeeService;
 import org.nolhtaced.core.services.UserService;
+import org.nolhtaced.desktop.enumerators.EAppForm;
+import org.nolhtaced.desktop.exceptions.UIManagerNotInitializedException;
 import org.nolhtaced.desktop.utilities.UIManager;
 import org.nolhtaced.desktop.UserSession;
 
@@ -71,34 +73,34 @@ public class UserController {
         populateMenuOptions();
     }
 
-    public void onClickAdd(UserRoleEnum type) {
+    public void onClickAdd(UserRoleEnum type) throws UIManagerNotInitializedException {
         if (type == UserRoleEnum.ADMINISTRATOR) {
             try {
-                UIManager.<User>openForm("/forms/user-form.fxml", unused -> this.populateTable());
+                UIManager.<User>openForm(EAppForm.USER_FORM, unused -> this.populateTable());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         } else if (type == UserRoleEnum.CUSTOMER) {
             try {
-                UIManager.<Customer>openForm("/forms/customer-form.fxml", unused -> this.populateTable());
+                UIManager.<Customer>openForm(EAppForm.CUSTOMER_FORM, unused -> this.populateTable());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         } else {
             try {
-                UIManager.<Employee>openForm("/forms/employee-form.fxml", unused -> this.populateTable());
+                UIManager.<Employee>openForm(EAppForm.EMPLOYEE_FORM, unused -> this.populateTable());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
     }
 
-    public void onClickEdit() {
+    public void onClickEdit() throws UIManagerNotInitializedException {
         User user = tableView.getSelectionModel().getSelectedItem();
 
         if (user.getRole() == UserRoleEnum.ADMINISTRATOR) {
             try {
-                UIManager.openForm("/forms/user-form.fxml", user, unused -> this.populateTable());
+                UIManager.openForm(EAppForm.USER_FORM, user, unused -> this.populateTable());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -107,7 +109,7 @@ public class UserController {
         else if (user.getRole() == UserRoleEnum.CUSTOMER) {
             try {
                 Customer customer = customerService.get(user.getId());
-                UIManager.openForm("/forms/customer-form.fxml", customer, unused -> this.populateTable());
+                UIManager.openForm(EAppForm.CUSTOMER_FORM, customer, unused -> this.populateTable());
             } catch (UserNotFoundException e) {
                 throw new RuntimeException(e);
             } catch (IOException e) {
@@ -118,7 +120,7 @@ public class UserController {
         else {
             try {
                 Employee employee = employeeService.get(user.getId());
-                UIManager.openForm("/forms/employee-form.fxml", employee, unused -> this.populateTable());
+                UIManager.openForm(EAppForm.EMPLOYEE_FORM, employee, unused -> this.populateTable());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             } catch (UserNotFoundException e) {
@@ -181,18 +183,36 @@ public class UserController {
 
         if (role == UserRoleEnum.ADMINISTRATOR) {
             MenuItem administratorItem = new MenuItem("Administrator");
-            administratorItem.setOnAction((e) -> onClickAdd(UserRoleEnum.ADMINISTRATOR));
+            administratorItem.setOnAction((e) -> {
+                try {
+                    onClickAdd(UserRoleEnum.ADMINISTRATOR);
+                } catch (UIManagerNotInitializedException ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
             addBtn.getItems().add(administratorItem);
         }
 
         if (role == UserRoleEnum.ADMINISTRATOR || role == UserRoleEnum.MANAGER) {
             MenuItem employeeItem = new MenuItem("Employee");
-            employeeItem.setOnAction((e) -> onClickAdd(UserRoleEnum.MANAGER));
+            employeeItem.setOnAction((e) -> {
+                try {
+                    onClickAdd(UserRoleEnum.MANAGER);
+                } catch (UIManagerNotInitializedException ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
             addBtn.getItems().add(employeeItem);
         }
 
         MenuItem customerItem = new MenuItem("Customer");
-        customerItem.setOnAction((e) -> onClickAdd(UserRoleEnum.CUSTOMER));
+        customerItem.setOnAction((e) -> {
+            try {
+                onClickAdd(UserRoleEnum.CUSTOMER);
+            } catch (UIManagerNotInitializedException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
         addBtn.getItems().add(customerItem);
     }
 }

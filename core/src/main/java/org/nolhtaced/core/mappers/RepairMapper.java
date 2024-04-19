@@ -20,22 +20,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class RepairMapper {
-    private static final ModelMapper mapper = ModelMapperProvider.getModelMapper();
-    private static final HashMap<String, RepairStateEnum> REVERSE_REPAIR_STATES = new HashMap<>();
     private static final Dao<CustomerBicycleEntity, Integer> bicycleDao = new DaoImpl<>(CustomerBicycleEntity.class);
     private static final Dao<EmployeeEntity, Integer> employeeDao = new DaoImpl<>(EmployeeEntity.class);
-
-    static {
-        REVERSE_REPAIR_STATES.put(RepairStateEnum.PENDING.toString(), RepairStateEnum.PENDING);
-        REVERSE_REPAIR_STATES.put(RepairStateEnum.IN_PROGRESS.toString(), RepairStateEnum.IN_PROGRESS);
-        REVERSE_REPAIR_STATES.put(RepairStateEnum.ON_HOLD.toString(), RepairStateEnum.ON_HOLD);
-        REVERSE_REPAIR_STATES.put(RepairStateEnum.COMPLETED.toString(), RepairStateEnum.COMPLETED);
-        REVERSE_REPAIR_STATES.put(RepairStateEnum.CANCELLED.toString(), RepairStateEnum.CANCELLED);
-        REVERSE_REPAIR_STATES.put(RepairStateEnum.AWAITING_PAYMENT.toString(), RepairStateEnum.AWAITING_PAYMENT);
-        REVERSE_REPAIR_STATES.put(RepairStateEnum.QUALITY_CHECK.toString(), RepairStateEnum.QUALITY_CHECK);
-        REVERSE_REPAIR_STATES.put(RepairStateEnum.DELIVERED.toString(), RepairStateEnum.DELIVERED);
-        REVERSE_REPAIR_STATES.put(RepairStateEnum.REOPENED.toString(), RepairStateEnum.REOPENED);
-    }
 
     public static Converter<RepairEntity, Repair> entityToDomain = new Converter<RepairEntity, Repair>() {
         @Override
@@ -47,7 +33,7 @@ public class RepairMapper {
             repair.setBicycleId(repairEntity.getBicycle().getId());
             repair.setNotes(repairEntity.getNotes());
             repair.setAssignedEmployeeId(repairEntity.getAssignedEmployee().getId());
-            repair.setState(REVERSE_REPAIR_STATES.get(repairEntity.getCurrentState()));
+            repair.setState(RepairStateEnum.valueOf((repairEntity.getCurrentState().toUpperCase())));
 
             List<IRepairItem> productsUsed = repairEntity.getRepairProducts().stream().map(
                     repairProduct -> new RepairItem(
@@ -89,7 +75,7 @@ public class RepairMapper {
             repairEntity.setBicycle(bicycle);
             repairEntity.setNotes(repair.getNotes());
             repairEntity.setAssignedEmployee(assignedEmployee);
-            repairEntity.setCurrentState(repair.getState().toString());
+            repairEntity.setCurrentState(repair.getState().value);
 
             return repairEntity;
         }

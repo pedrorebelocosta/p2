@@ -15,7 +15,6 @@ public abstract class FormController<T> {
     protected Stage stage;
     public Validator validator = new Validator();
     protected boolean isEditing = false;
-    // TODO check if there's a more "OO" way of doing this
     protected Callback<T, Void> successCallback;
 
     protected abstract void onDataReceived(T data);

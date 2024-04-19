@@ -93,16 +93,7 @@ public class RepairFormController extends FormController<Repair> {
         assignedEmployeeBox.setButtonCell(ComboBoxHelper.buildButtonCell(employee -> String.format("%s %s", employee.getFirstName(), employee.getLastName())));
         assignedEmployeeBox.setCellFactory(ComboBoxHelper.buildCellFactory(employee -> String.format("%s %s", employee.getFirstName(), employee.getLastName())));
 
-        statesBox.getItems().addAll(
-                RepairStateEnum.PENDING,
-                RepairStateEnum.IN_PROGRESS,
-                RepairStateEnum.ON_HOLD,
-                RepairStateEnum.CANCELLED,
-                RepairStateEnum.AWAITING_PAYMENT,
-                RepairStateEnum.QUALITY_CHECK,
-                RepairStateEnum.DELIVERED,
-                RepairStateEnum.REOPENED
-        );
+        statesBox.getItems().addAll(RepairStateEnum.values());
 
         initializeFieldValidators();
     }

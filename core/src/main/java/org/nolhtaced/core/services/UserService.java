@@ -17,7 +17,6 @@ import java.util.Optional;
 import java.util.List;
 import java.util.stream.Collectors;
 
-// TODO Error Handling Review
 public class UserService extends BaseService {
     private final Dao<UserEntity, Integer> userDao;
 
@@ -43,7 +42,6 @@ public class UserService extends BaseService {
         return this.mapper.map(userEntity.get(), User.class);
     }
 
-    // TODO check if it makes sense to add the session logic here
     public User getByUsername(String userName) throws UserNotFoundException {
         Optional<UserEntity> userEntity = userDao.getByUniqueAttribute("username", userName);
 

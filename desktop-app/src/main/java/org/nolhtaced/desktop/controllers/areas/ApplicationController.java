@@ -24,6 +24,7 @@ import org.nolhtaced.desktop.enumerators.EAppView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class ApplicationController {
@@ -36,14 +37,14 @@ public class ApplicationController {
     @FXML
     public Label logoutButtonImg;
 
-    private static final HashMap<EAppView, String> VIEWS_LOCATION_MAP = new HashMap<>();
+    private static final HashMap<EAppView, String> VIEWS_LOCATION_MAP = new LinkedHashMap<>();
 
     static {
         VIEWS_LOCATION_MAP.put(EAppView.USER_MANAGEMENT, "/views/user-view.fxml");
         VIEWS_LOCATION_MAP.put(EAppView.CUSTOMER_MANAGEMENT, "/views/customer-view.fxml");
         VIEWS_LOCATION_MAP.put(EAppView.PRODUCT_MANAGEMENT, "/views/product-view.fxml");
-        VIEWS_LOCATION_MAP.put(EAppView.CATEGORY_MANAGEMENT, "/views/category-view.fxml");
         VIEWS_LOCATION_MAP.put(EAppView.SERVICE_MANAGEMENT, "/views/service-view.fxml");
+        VIEWS_LOCATION_MAP.put(EAppView.CATEGORY_MANAGEMENT, "/views/category-view.fxml");
         VIEWS_LOCATION_MAP.put(EAppView.SALES_MANAGEMENT, "/views/sales-view.fxml");
         VIEWS_LOCATION_MAP.put(EAppView.ORDERS_MANAGEMENT, "/views/order-view.fxml");
         VIEWS_LOCATION_MAP.put(EAppView.REPAIRS_MANAGEMENT, "/views/repair-view.fxml");
@@ -81,9 +82,9 @@ public class ApplicationController {
         }
 
         if (role == UserRoleEnum.SALES_REPRESENTATIVE) {
+            availableViews.add(EAppView.CUSTOMER_MANAGEMENT);
             availableViews.add(EAppView.SALES_MANAGEMENT);
             availableViews.add(EAppView.ORDERS_MANAGEMENT);
-            availableViews.add(EAppView.CUSTOMER_MANAGEMENT);
             availableViews.add(EAppView.REPAIRS_MANAGEMENT);
         }
 
@@ -118,6 +119,8 @@ public class ApplicationController {
             AnchorPane.setBottomAnchor(node, (double) 0);
             AnchorPane.setLeftAnchor(node, (double) 0);
         } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (UIManagerNotInitializedException e) {
             throw new RuntimeException(e);
         }
     }

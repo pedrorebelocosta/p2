@@ -19,23 +19,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class TransactionMapper {
-    private static final ModelMapper mapper = ModelMapperProvider.getModelMapper();
     private static final Dao<CustomerEntity, Integer> customerDao = new DaoImpl<>(CustomerEntity.class);
     private static final Dao<EmployeeEntity, Integer> employeeDao = new DaoImpl<>(EmployeeEntity.class);
-
-    private static final HashMap<String, TransactionStateEnum> REVERSE_TRANSACTION_STATES = new HashMap<>();
-
-    static {
-        REVERSE_TRANSACTION_STATES.put(TransactionStateEnum.ORDERED.toString(), TransactionStateEnum.ORDERED);
-        REVERSE_TRANSACTION_STATES.put(TransactionStateEnum.AWAITING_PAYMENT.toString(), TransactionStateEnum.AWAITING_PAYMENT);
-        REVERSE_TRANSACTION_STATES.put(TransactionStateEnum.PAYMENT_RECEIVED.toString(), TransactionStateEnum.PAYMENT_RECEIVED);
-        REVERSE_TRANSACTION_STATES.put(TransactionStateEnum.CONFIRMED.toString(), TransactionStateEnum.CONFIRMED);
-        REVERSE_TRANSACTION_STATES.put(TransactionStateEnum.PROCESSED.toString(), TransactionStateEnum.PROCESSED);
-        REVERSE_TRANSACTION_STATES.put(TransactionStateEnum.SHIPPED.toString(), TransactionStateEnum.SHIPPED);
-        REVERSE_TRANSACTION_STATES.put(TransactionStateEnum.DELIVERED.toString(), TransactionStateEnum.DELIVERED);
-        REVERSE_TRANSACTION_STATES.put(TransactionStateEnum.DONE.toString(), TransactionStateEnum.DONE);
-        REVERSE_TRANSACTION_STATES.put(TransactionStateEnum.CANCELLED.toString(), TransactionStateEnum.CANCELLED);
-    }
 
     public static Converter<TransactionEntity, Transaction> entityToDomain = new Converter<TransactionEntity, Transaction>() {
         @Override
@@ -52,7 +37,7 @@ public class TransactionMapper {
             transaction.setCustomerId(transactionEntity.getCustomer().getId());
             transaction.setTotalAmount(transactionEntity.getTotalAmount());
             transaction.setCreatedAt(transactionEntity.getCreatedAt());
-            transaction.setState(REVERSE_TRANSACTION_STATES.get(transactionEntity.getTransactionState()));
+            transaction.setState(TransactionStateEnum.valueOf(transactionEntity.getTransactionState().toUpperCase()));
 
             List<ITransactionItem> acquiredProducts = transactionEntity.getTransactionProducts().stream().map(
                     transactionProduct -> new TransactionItem(
@@ -100,9 +85,8 @@ public class TransactionMapper {
             transactionEntity.setCustomer(customerEntity);
             transactionEntity.setTotalAmount(transaction.getTotalAmount());
             transactionEntity.setCreatedAt(transaction.getCreatedAt());
-            transactionEntity.setTransactionState(transaction.getState().toString());
+            transactionEntity.setTransactionState(transaction.getState().value);
 
-            // TODO find a better solution for reverse mappings...
             return transactionEntity;
         }
     };

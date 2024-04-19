@@ -1,58 +1,64 @@
 package org.nolhtaced.core.enumerators;
 
 public enum RepairStateEnum {
-    PENDING {
+    PENDING("pending") {
         @Override
         public String toString() {
-            return "pending";
+            return "Pending";
         }
     },
-    IN_PROGRESS {
+    IN_PROGRESS("in_progress") {
         @Override
         public String toString() {
-            return "in_progress";
+            return "In Progress";
         }
     },
-    ON_HOLD {
+    ON_HOLD("on_hold") {
         @Override
         public String toString() {
-            return "on_hold";
+            return "On Hold";
         }
     },
-    COMPLETED {
+    COMPLETED("completed") {
         @Override
         public String toString() {
-            return "completed";
+            return "Completed";
         }
     },
-    CANCELLED {
+    CANCELLED("cancelled") {
         @Override
         public String toString() {
-            return "cancelled";
+            return "Cancelled";
         }
     },
-    AWAITING_PAYMENT {
+    AWAITING_PAYMENT("awaiting_payment") {
         @Override
         public String toString() {
-            return "awaiting_payment";
+            return "Awaiting Payment";
         }
     },
-    QUALITY_CHECK {
+    QUALITY_CHECK("quality_check") {
         @Override
         public String toString() {
-            return "quality_check";
+            return "Quality Check";
         }
     },
-    DELIVERED {
+    DELIVERED("delivered") {
         @Override
         public String toString() {
-            return "delivered";
+            return "Delivered";
         }
     },
-    REOPENED {
+    REOPENED("reopened") {
         @Override
         public String toString() {
-            return "reopened";
+            return "Reopened";
         }
+    };
+
+    public final String value;
+
+    RepairStateEnum(String value) {
+        this.value = value;
     }
 }

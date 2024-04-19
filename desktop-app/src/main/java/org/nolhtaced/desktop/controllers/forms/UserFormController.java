@@ -38,7 +38,6 @@ public class UserFormController extends FormController<User> {
 
     @FXML
     public void initialize() {
-        // TODO isEditing assumes a false value here all the time, try to fix it (is it a problem?)
         activeField.setSelected(true);
         role = UserRoleEnum.ADMINISTRATOR;
         attachFieldValidators();
@@ -67,7 +66,6 @@ public class UserFormController extends FormController<User> {
         if (!isEditing) {
             userService.create(formUser);
         } else {
-            // TODO check if this is necessary
             formUser.setId(data.getId());
             userService.update(formUser);
         }
@@ -93,14 +91,12 @@ public class UserFormController extends FormController<User> {
         );
     }
 
-    // TODO check if it makes sense to move this somewhere else
     public void hideButtons() {
         cancelBtn.setVisible(false);
         saveBtn.setVisible(false);
     }
 
     private void attachFieldValidators() {
-        // TODO check how to handle password (only on create)
         validator.createCheck()
             .dependsOn("username", usernameField.textProperty())
             .withMethod(context -> {

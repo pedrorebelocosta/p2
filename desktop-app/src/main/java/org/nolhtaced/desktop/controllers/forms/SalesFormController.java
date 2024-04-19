@@ -209,25 +209,8 @@ public class SalesFormController extends FormController<Transaction> {
             }
         });
 
-        // TODO FIX THIS LOGIC (can't focus on this rn)
-        addItemBtn.disableProperty().bind(
-                Bindings.and(
-                        sellableListCombobox.valueProperty().isNull(),
-                        quantityField.textProperty().isNull().or(quantityField.textProperty().isEmpty())
-                )
-        );
-
-        transactionStateField.getItems().addAll(
-                TransactionStateEnum.ORDERED,
-                TransactionStateEnum.AWAITING_PAYMENT,
-                TransactionStateEnum.PAYMENT_RECEIVED,
-                TransactionStateEnum.CONFIRMED,
-                TransactionStateEnum.PROCESSED,
-                TransactionStateEnum.SHIPPED,
-                TransactionStateEnum.DELIVERED,
-                TransactionStateEnum.DONE,
-                TransactionStateEnum.CANCELLED
-        );
+        addItemBtn.disableProperty().bind(Bindings.or(sellableListCombobox.valueProperty().isNull(), quantityField.textProperty().isEmpty()));
+        transactionStateField.getItems().addAll(TransactionStateEnum.values());
 
         deleteRowCol.setCellFactory(new Callback<>() {
             @Override

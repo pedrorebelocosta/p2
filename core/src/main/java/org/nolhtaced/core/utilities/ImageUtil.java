@@ -11,7 +11,6 @@ public class ImageUtil {
     private static final String IMG_BASE_PATH = System.getenv("IMAGES_PATH");
     private static final File directory = new File(IMG_BASE_PATH);
 
-    // TODO add support for different file extensions
     public static String saveImage(byte[] imageBytes) throws IOException {
         if (!directory.exists()) {
             Files.createDirectories(Paths.get(IMG_BASE_PATH));

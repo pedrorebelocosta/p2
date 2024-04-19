@@ -32,7 +32,6 @@ public class CustomerFormController extends FormController<Customer> {
     }
 
     public void onClickSave() throws UserNotFoundException {
-        // TODO this deserves some TLC (single ampersand is not short circuiting)
         boolean valid = userFormController.validator.validate() & validator.validate();
 
         if (!valid) return;

@@ -9,6 +9,8 @@ import org.nolhtaced.core.exceptions.ProductNotFoundException;
 import org.nolhtaced.core.models.Product;
 import org.nolhtaced.core.services.ProductService;
 import org.nolhtaced.desktop.UserSession;
+import org.nolhtaced.desktop.enumerators.EAppForm;
+import org.nolhtaced.desktop.exceptions.UIManagerNotInitializedException;
 import org.nolhtaced.desktop.utilities.UIManager;
 
 import java.io.IOException;
@@ -53,9 +55,9 @@ public class ProductController {
         populateTable();
     }
 
-    public void onClickAdd() {
+    public void onClickAdd() throws UIManagerNotInitializedException {
         try {
-            UIManager.openForm("/forms/product-form.fxml", unused -> this.populateTable());
+            UIManager.openForm(EAppForm.PRODUCT_FORM, unused -> this.populateTable());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -85,11 +87,11 @@ public class ProductController {
         }
     }
 
-    public void onClickEdit() {
+    public void onClickEdit() throws UIManagerNotInitializedException {
         Product product = tableView.getSelectionModel().getSelectedItem();
 
         try {
-            UIManager.openForm("/forms/product-form.fxml", product, unused -> this.populateTable());
+            UIManager.openForm(EAppForm.PRODUCT_FORM, product, unused -> this.populateTable());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

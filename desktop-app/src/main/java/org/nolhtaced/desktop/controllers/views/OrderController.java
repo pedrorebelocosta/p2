@@ -16,6 +16,8 @@ import org.nolhtaced.core.models.Transaction;
 import org.nolhtaced.core.services.CustomerService;
 import org.nolhtaced.core.services.TransactionService;
 import org.nolhtaced.desktop.UserSession;
+import org.nolhtaced.desktop.enumerators.EAppForm;
+import org.nolhtaced.desktop.exceptions.UIManagerNotInitializedException;
 import org.nolhtaced.desktop.utilities.UIManager;
 
 import java.io.IOException;
@@ -51,12 +53,10 @@ public class OrderController {
 
     @FXML
     public void initialize() {
-
         transitionStateBtn.disableProperty().bind(Bindings.isNull(tableView.getSelectionModel().selectedItemProperty()));
         viewDetailBtn.disableProperty().bind(Bindings.isNull(tableView.getSelectionModel().selectedItemProperty()));
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-        // TODO this could be optimized...
         customerCol.setCellValueFactory(new PropertyValueFactory<>("customerId"));
         customerCol.setCellFactory(new Callback<>() {
             @Override
@@ -90,19 +90,19 @@ public class OrderController {
         return null;
     }
 
-    public void onClickViewDetails() {
+    public void onClickViewDetails() throws UIManagerNotInitializedException {
         Transaction t = tableView.getSelectionModel().getSelectedItem();
         try {
-            UIManager.openForm("/forms/transaction-detail-view.fxml", t, unused -> null);
+            UIManager.openForm(EAppForm.TRANSACTION_DETAIL_FORM, t, unused -> null);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void onClickStateTransition() {
+    public void onClickStateTransition() throws UIManagerNotInitializedException {
         Transaction t = tableView.getSelectionModel().getSelectedItem();
         try {
-            UIManager.openForm("/forms/transaction-state-form.fxml", t.getState(), newState -> onOrderStateTransition(t, newState));
+            UIManager.openForm(EAppForm.TRANSACTION_STATE_FORM, t.getState(), newState -> onOrderStateTransition(t, newState));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

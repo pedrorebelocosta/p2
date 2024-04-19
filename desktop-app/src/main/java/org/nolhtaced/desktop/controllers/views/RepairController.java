@@ -13,6 +13,8 @@ import org.nolhtaced.core.services.BicycleService;
 import org.nolhtaced.core.services.EmployeeService;
 import org.nolhtaced.core.services.RepairService;
 import org.nolhtaced.desktop.UserSession;
+import org.nolhtaced.desktop.enumerators.EAppForm;
+import org.nolhtaced.desktop.exceptions.UIManagerNotInitializedException;
 import org.nolhtaced.desktop.utilities.UIManager;
 
 import java.io.IOException;
@@ -99,6 +101,7 @@ public class RepairController {
             }
         });
 
+        editBtn.disableProperty().bind(tableView.getSelectionModel().selectedItemProperty().isNull());
         populateTable();
     }
 
@@ -107,18 +110,18 @@ public class RepairController {
         return null;
     }
 
-    public void onClickAdd() {
+    public void onClickAdd() throws UIManagerNotInitializedException {
         try {
-            UIManager.openForm("/forms/repair-form.fxml", unused -> populateTable());
+            UIManager.openForm(EAppForm.REPAIR_FORM, unused -> populateTable());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void onClickEdit() {
+    public void onClickEdit() throws UIManagerNotInitializedException {
         Repair r = tableView.getSelectionModel().getSelectedItem();
         try {
-            UIManager.openForm("/forms/repair-form.fxml", r, unused -> populateTable());
+            UIManager.openForm(EAppForm.REPAIR_FORM, r, unused -> populateTable());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

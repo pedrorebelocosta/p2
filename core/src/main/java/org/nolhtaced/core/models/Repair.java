@@ -24,7 +24,7 @@ public class Repair extends Identifiable<Integer> {
         this.sellablesUsed = sellablesUsed;
     }
 
-    public Repair(Integer id, Integer bicycleId, RepairStateEnum state, String notes,Integer assignedEmployeeId, List<IRepairItem> sellablesUsed) {
+    public Repair(Integer id, Integer bicycleId, RepairStateEnum state, String notes, Integer assignedEmployeeId, List<IRepairItem> sellablesUsed) {
         super(id);
         this.bicycleId = bicycleId;
         this.state = state;

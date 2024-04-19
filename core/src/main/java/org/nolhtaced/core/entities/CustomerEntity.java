@@ -12,7 +12,6 @@ public class CustomerEntity {
     @Column(name = "user_id", nullable = false)
     private Integer id;
 
-    // TODO maybe remove the cascade type merge
     // https://stackoverflow.com/questions/25090486/java-spring-hibernate-not-updating-entities
     @MapsId
     @OneToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.MERGE)

@@ -1,58 +1,64 @@
 package org.nolhtaced.core.enumerators;
 
 public enum TransactionStateEnum {
-    ORDERED {
+    ORDERED("ordered") {
         @Override
         public String toString() {
-            return "ordered";
+            return "Ordered";
         }
     },
-    AWAITING_PAYMENT {
+    AWAITING_PAYMENT("awaiting_payment") {
         @Override
         public String toString() {
-            return "awaiting_payment";
+            return "Awaiting Payment";
         }
     },
-    PAYMENT_RECEIVED {
+    PAYMENT_RECEIVED("payment_received") {
         @Override
         public String toString() {
-            return "payment_received";
+            return "Payment Received";
         }
     },
-    CONFIRMED {
+    CONFIRMED("confirmed") {
         @Override
         public String toString() {
-            return "confirmed";
+            return "Confirmed";
         }
     },
-    PROCESSED {
+    PROCESSED("processed") {
         @Override
         public String toString() {
-            return "processed";
+            return "Processed";
         }
     },
-    SHIPPED {
+    SHIPPED("shipped") {
         @Override
         public String toString() {
-            return "shipped";
+            return "Shipped";
         }
     },
-    DELIVERED {
+    DELIVERED("delivered") {
         @Override
         public String toString() {
-            return "delivered";
+            return "Delivered";
         }
     },
-    DONE {
+    DONE("done") {
         @Override
         public String toString() {
-            return "done";
+            return "Done";
         }
     },
-    CANCELLED {
+    CANCELLED("cancelled") {
         @Override
         public String toString() {
-            return "cancelled";
+            return "Cancelled";
         }
+    };
+
+    public final String value;
+
+    TransactionStateEnum(String value) {
+        this.value = value;
     }
 }

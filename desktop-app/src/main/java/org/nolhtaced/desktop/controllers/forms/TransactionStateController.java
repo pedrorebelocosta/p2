@@ -10,17 +10,7 @@ public class TransactionStateController extends FormController<TransactionStateE
 
     @FXML
     public void initialize() {
-        statesCombobox.getItems().addAll(
-                TransactionStateEnum.ORDERED,
-                TransactionStateEnum.AWAITING_PAYMENT,
-                TransactionStateEnum.PAYMENT_RECEIVED,
-                TransactionStateEnum.CONFIRMED,
-                TransactionStateEnum.PROCESSED,
-                TransactionStateEnum.SHIPPED,
-                TransactionStateEnum.DELIVERED,
-                TransactionStateEnum.DONE,
-                TransactionStateEnum.CANCELLED
-        );
+        statesCombobox.getItems().addAll(TransactionStateEnum.values());
     }
 
     @Override

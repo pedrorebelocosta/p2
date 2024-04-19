@@ -14,11 +14,11 @@ public class UserMapper {
     private static final HashMap<String, UserRoleEnum> REVERSE_USER_ROLES = new HashMap<>();
 
     static {
-        REVERSE_USER_ROLES.put(UserRoleEnum.ADMINISTRATOR.toString(), UserRoleEnum.ADMINISTRATOR);
-        REVERSE_USER_ROLES.put(UserRoleEnum.CUSTOMER.toString(), UserRoleEnum.CUSTOMER);
-        REVERSE_USER_ROLES.put(UserRoleEnum.MANAGER.toString(), UserRoleEnum.MANAGER);
-        REVERSE_USER_ROLES.put(UserRoleEnum.SALES_REPRESENTATIVE.toString(), UserRoleEnum.SALES_REPRESENTATIVE);
-        REVERSE_USER_ROLES.put(UserRoleEnum.MECHANIC.toString(), UserRoleEnum.MECHANIC);
+        REVERSE_USER_ROLES.put(UserRoleEnum.ADMINISTRATOR.value, UserRoleEnum.ADMINISTRATOR);
+        REVERSE_USER_ROLES.put(UserRoleEnum.CUSTOMER.value, UserRoleEnum.CUSTOMER);
+        REVERSE_USER_ROLES.put(UserRoleEnum.MANAGER.value, UserRoleEnum.MANAGER);
+        REVERSE_USER_ROLES.put(UserRoleEnum.SALES_REPRESENTATIVE.value, UserRoleEnum.SALES_REPRESENTATIVE);
+        REVERSE_USER_ROLES.put(UserRoleEnum.MECHANIC.value, UserRoleEnum.MECHANIC);
     }
 
     public static Converter<UserEntity, User> entityToDomain = new Converter<UserEntity, User>() {
@@ -53,7 +53,7 @@ public class UserMapper {
             userEntity.setLastName(user.getLastName());
             userEntity.setDateOfBirth(user.getDateOfBirth());
             userEntity.setActive(user.getActive());
-            userEntity.setRole(user.getRole().toString());
+            userEntity.setRole(user.getRole().value);
 
             return userEntity;
         }

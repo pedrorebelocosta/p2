@@ -10,6 +10,8 @@ import org.nolhtaced.core.models.Product;
 import org.nolhtaced.core.models.Service;
 import org.nolhtaced.core.services.ServiceService;
 import org.nolhtaced.desktop.UserSession;
+import org.nolhtaced.desktop.enumerators.EAppForm;
+import org.nolhtaced.desktop.exceptions.UIManagerNotInitializedException;
 import org.nolhtaced.desktop.utilities.UIManager;
 
 import java.io.IOException;
@@ -74,19 +76,19 @@ public class ServiceController {
         }
     }
 
-    public void onClickEdit() {
+    public void onClickEdit() throws UIManagerNotInitializedException {
         Service service = tableView.getSelectionModel().getSelectedItem();
 
         try {
-            UIManager.openForm("/forms/service-form.fxml", service, unused -> this.populateTable());
+            UIManager.openForm(EAppForm.SERVICE_FORM, service, unused -> this.populateTable());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void onClickAdd() {
+    public void onClickAdd() throws UIManagerNotInitializedException {
         try {
-            UIManager.openForm("/forms/service-form.fxml", unused -> this.populateTable());
+            UIManager.openForm(EAppForm.SERVICE_FORM, unused -> this.populateTable());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

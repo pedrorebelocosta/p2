@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.nolhtaced.desktop.controllers.forms.FormController;
 import org.nolhtaced.desktop.enumerators.EAppArea;
+import org.nolhtaced.desktop.enumerators.EAppForm;
 import org.nolhtaced.desktop.exceptions.UIManagerNotInitializedException;
 
 import java.io.IOException;
@@ -18,11 +19,22 @@ import java.util.HashMap;
 public class UIManager {
     private static Class<? extends Application> applicationClass = null;
     private static Stage stageInstance = null;
-    private static HashMap<EAppArea, String> SCREENS_LOCATION_MAP = new HashMap<>();
+    private static final HashMap<EAppArea, String> SCREENS_LOCATION_MAP = new HashMap<>();
+    private static final HashMap<EAppForm, String> FORMS_LOCATION_MAP = new HashMap<>();
 
     static {
         SCREENS_LOCATION_MAP.put(EAppArea.LOGIN, "/areas/login.fxml");
         SCREENS_LOCATION_MAP.put(EAppArea.APPLICATION, "/areas/application.fxml");
+        FORMS_LOCATION_MAP.put(EAppForm.CATEGORY_FORM, "/forms/category-form.fxml");
+        FORMS_LOCATION_MAP.put(EAppForm.CUSTOMER_FORM, "/forms/customer-form.fxml");
+        FORMS_LOCATION_MAP.put(EAppForm.EMPLOYEE_FORM, "/forms/employee-form.fxml");
+        FORMS_LOCATION_MAP.put(EAppForm.PRODUCT_FORM, "/forms/product-form.fxml");
+        FORMS_LOCATION_MAP.put(EAppForm.REPAIR_FORM, "/forms/repair-form.fxml");
+        FORMS_LOCATION_MAP.put(EAppForm.SALES_FORM, "/forms/sales-form.fxml");
+        FORMS_LOCATION_MAP.put(EAppForm.SERVICE_FORM, "/forms/service-form.fxml");
+        FORMS_LOCATION_MAP.put(EAppForm.TRANSACTION_DETAIL_FORM, "/forms/transaction-detail-view.fxml");
+        FORMS_LOCATION_MAP.put(EAppForm.TRANSACTION_STATE_FORM, "/forms/transaction-state-form.fxml");
+        FORMS_LOCATION_MAP.put(EAppForm.USER_FORM, "/forms/user-form.fxml");
     }
 
     private UIManager() {}
@@ -42,16 +54,23 @@ public class UIManager {
         stageInstance.show();
     }
 
-    // TODO handle UIManagerNotInitializedException
-    public static Node getViewNode(String file) throws IOException {
+    public static Node getViewNode(String file) throws IOException, UIManagerNotInitializedException {
+        checkInitialization();
         FXMLLoader fxmlLoader = new FXMLLoader(applicationClass.getResource(file));
         return fxmlLoader.load();
     }
 
-    // TODO handle UIManagerNotInitializedException
-    public static <T> void openForm(String file, Callback<T, Void> onSuccess) throws IOException {
+    private static void checkInitialization() throws UIManagerNotInitializedException {
+        if (applicationClass == null || stageInstance == null) {
+            throw new UIManagerNotInitializedException();
+        }
+    }
+
+    public static <T> void openForm(EAppForm form, Callback<T, Void> onSuccess) throws IOException, UIManagerNotInitializedException {
+        checkInitialization();
         Stage modalStage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(applicationClass.getResource(file));
+        String formPath = FORMS_LOCATION_MAP.get(form);
+        FXMLLoader fxmlLoader = new FXMLLoader(applicationClass.getResource(formPath));
         Parent parent = fxmlLoader.load();
         FormController<T> controller = fxmlLoader.getController();
         controller.setFormStage(modalStage);
@@ -63,10 +82,11 @@ public class UIManager {
         modalStage.showAndWait();
     }
 
-    // TODO handle UIManagerNotInitializedException
-    public static <T> void openForm(String file, T data, Callback<T, Void> onSuccess) throws IOException {
+    public static <T> void openForm(EAppForm form, T data, Callback<T, Void> onSuccess) throws IOException, UIManagerNotInitializedException {
+        checkInitialization();
         Stage modalStage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(applicationClass.getResource(file));
+        String formPath = FORMS_LOCATION_MAP.get(form);
+        FXMLLoader fxmlLoader = new FXMLLoader(applicationClass.getResource(formPath));
         Parent parent = fxmlLoader.load();
         FormController<T> controller = fxmlLoader.getController();
         controller.setInitialData(data);

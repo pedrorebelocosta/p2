@@ -79,7 +79,6 @@ public class EmployeeFormController extends FormController<Employee> {
     }
 
     public void onClickSave() throws UserNotFoundException {
-        // TODO this deserves some TLC (single ampersand is non shortcircuiting)
         boolean valid = userFormController.validator.validate() & validator.validate();
 
         if (!valid) return;

@@ -7,31 +7,48 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane minHeight="600.0" minWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nolhtaced.desktop.controllers.areas.ApplicationController">
    <left>
-      <Pane prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="28.0" fitWidth="191.0" layoutX="12.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <BorderPane prefHeight="600.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <top>
+            <ImageView fitHeight="28.0" fitWidth="191.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../images/logo.png" />
                </image>
+               <BorderPane.margin>
+                  <Insets bottom="16.0" top="16.0" />
+               </BorderPane.margin>
             </ImageView>
-            <VBox fx:id="menuItemsVBox" layoutX="14.0" layoutY="63.0" prefHeight="482.0" prefWidth="173.0" spacing="16.0" />
-            <Label fx:id="logoutBtn" layoutX="50.0" layoutY="570.0" text="Logout">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Label>
-            <Label fx:id="logoutButtonImg" layoutX="14.0" layoutY="563.0" prefHeight="32.0" prefWidth="32.0">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Label>
-         </children>
-      </Pane>
+         </top>
+         <left>
+            <VBox fx:id="menuItemsVBox" prefHeight="516.0" prefWidth="202.0" spacing="16.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="8.0" right="8.0" />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+         <bottom>
+            <AnchorPane BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="logoutBtn" layoutX="36.0" layoutY="7.0" text="Logout">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label fx:id="logoutButtonImg" prefHeight="32.0" prefWidth="32.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" />
+               </BorderPane.margin>
+            </AnchorPane>
+         </bottom>
+      </BorderPane>
    </left>
    <center>
       <AnchorPane fx:id="contentPane" style="-fx-border-width: 0 0 0 1; -fx-border-color: black;" BorderPane.alignment="CENTER">

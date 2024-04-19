@@ -10,6 +10,8 @@ import org.nolhtaced.core.models.Category;
 import org.nolhtaced.core.models.Product;
 import org.nolhtaced.core.services.CategoryService;
 import org.nolhtaced.desktop.UserSession;
+import org.nolhtaced.desktop.enumerators.EAppForm;
+import org.nolhtaced.desktop.exceptions.UIManagerNotInitializedException;
 import org.nolhtaced.desktop.utilities.UIManager;
 
 import java.io.IOException;
@@ -49,9 +51,9 @@ public class CategoryController {
         populateTable();
     }
 
-    public void onClickAdd() {
+    public void onClickAdd() throws UIManagerNotInitializedException {
         try {
-            UIManager.openForm("/forms/category-form.fxml", unused -> this.populateTable());
+            UIManager.openForm(EAppForm.CATEGORY_FORM, unused -> this.populateTable());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -81,11 +83,11 @@ public class CategoryController {
         }
     }
 
-    public void onClickEdit() {
+    public void onClickEdit() throws UIManagerNotInitializedException {
         Category category = tableView.getSelectionModel().getSelectedItem();
 
         try {
-            UIManager.openForm("/forms/category-form.fxml", category, unused -> this.populateTable());
+            UIManager.openForm(EAppForm.CATEGORY_FORM, category, unused -> this.populateTable());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
