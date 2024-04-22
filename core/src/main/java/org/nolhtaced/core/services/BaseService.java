@@ -6,7 +6,7 @@ import org.nolhtaced.core.providers.ModelMapperProvider;
 
 public class BaseService {
     protected final ModelMapper mapper = ModelMapperProvider.getModelMapper();
-    protected NolhtacedSession session;
+    protected final NolhtacedSession session;
 
     public BaseService(NolhtacedSession session) {
         this.session = session;

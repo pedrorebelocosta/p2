@@ -1,5 +1,6 @@
 package org.nolhtaced.desktop.controllers.forms;
 
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -40,6 +41,8 @@ public class RepairFormController extends FormController<Repair> {
     public ComboBox<IRepairItem> productsAndServicesBox;
     @FXML
     public TextField quantityField;
+    @FXML
+    public Button addBtn;
     @FXML
     public TextArea notesArea;
     @FXML
@@ -94,6 +97,8 @@ public class RepairFormController extends FormController<Repair> {
         assignedEmployeeBox.setCellFactory(ComboBoxHelper.buildCellFactory(employee -> String.format("%s %s", employee.getFirstName(), employee.getLastName())));
 
         statesBox.getItems().addAll(RepairStateEnum.values());
+
+        addBtn.disableProperty().bind(Bindings.or(productsAndServicesBox.valueProperty().isNull(), quantityField.textProperty().isEmpty()));
 
         initializeFieldValidators();
     }

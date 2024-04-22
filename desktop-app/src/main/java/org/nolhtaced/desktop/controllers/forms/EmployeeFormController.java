@@ -24,34 +24,6 @@ public class EmployeeFormController extends FormController<Employee> {
     public UserFormController userFormController;
     private EmployeeService employeeService;
 
-    private StringConverter<UserRoleEnum> comboboxConverter = new StringConverter<>() {
-        @Override
-        public String toString(UserRoleEnum s) {
-            if (s == UserRoleEnum.MANAGER) {
-                return "Manager";
-            }
-
-            if (s == UserRoleEnum.MECHANIC) {
-                return "Mechanic";
-            }
-
-            return "Sales Representative";
-        }
-
-        @Override
-        public UserRoleEnum fromString(String s) {
-            if (s.equals("Manager")) {
-                return UserRoleEnum.MANAGER;
-            }
-
-            if (s.equals("Mechanic")) {
-                return UserRoleEnum.MECHANIC;
-            }
-
-            return UserRoleEnum.SALES_REPRESENTATIVE;
-        }
-    };
-
     public EmployeeFormController() {
         this.employeeService = new EmployeeService(UserSession.getSession());
     }
@@ -59,7 +31,6 @@ public class EmployeeFormController extends FormController<Employee> {
     @FXML
     public void initialize() {
         userFormController.hideButtons();
-        roleField.setConverter(comboboxConverter);
         populateRoles();
         attachFieldValidators();
 
@@ -67,8 +38,6 @@ public class EmployeeFormController extends FormController<Employee> {
             terminationDateField.setDisable(true);
         }
 
-        // DISABLE THE THING WHEN THE OTHER THING CHANGES
-        // When the form is instantiated the active property has already been set in the initialize method, so it won't fire here
         userFormController.activeField.selectedProperty().addListener((observable, oldValue, isActive) -> {
             terminationDateField.setDisable(isActive);
 

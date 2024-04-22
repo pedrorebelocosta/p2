@@ -36,5 +36,7 @@ public class ModelMapperProvider {
         modelMapper.addConverter(EmployeeMapper.domainToEntity);
         modelMapper.addConverter(TransactionMapper.entityToDomain);
         modelMapper.addConverter(TransactionMapper.domainToEntity);
+        modelMapper.addConverter(AppointmentMapper.entityToDomain);
+        modelMapper.addConverter(AppointmentMapper.domainToEntity);
     }
 }

@@ -45,10 +45,7 @@ public class UIManager {
     }
 
     public static void setScreen(EAppArea area) throws UIManagerNotInitializedException, IOException {
-        if (applicationClass == null || stageInstance == null) {
-            throw new UIManagerNotInitializedException();
-        }
-
+        checkInitialization();
         FXMLLoader fxmlLoader = new FXMLLoader(applicationClass.getResource(SCREENS_LOCATION_MAP.get(area)));
         stageInstance.setScene(new Scene(fxmlLoader.load()));
         stageInstance.show();

@@ -33,6 +33,17 @@ public class CustomerEntity {
     @OneToMany(mappedBy = "customerEntity")
     private Set<TransactionEntity> transactions = new LinkedHashSet<>();
 
+    @OneToMany(mappedBy = "customer")
+    private Set<AppointmentEntity> appointments = new LinkedHashSet<>();
+
+    public Set<AppointmentEntity> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(Set<AppointmentEntity> appointments) {
+        this.appointments = appointments;
+    }
+
     public Integer getId() {
         return id;
     }

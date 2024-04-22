@@ -3,6 +3,8 @@ package org.nolhtaced.core.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users", schema = "bikes_app")
@@ -32,6 +34,17 @@ public class UserEntity {
 
     @Column(name = "role", nullable = false, length = 2)
     private String role;
+
+    @OneToMany(mappedBy = "requester")
+    private Set<AppointmentEntity> appointments = new LinkedHashSet<>();
+
+    public Set<AppointmentEntity> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(Set<AppointmentEntity> appointments) {
+        this.appointments = appointments;
+    }
 
     public Integer getId() {
         return id;
