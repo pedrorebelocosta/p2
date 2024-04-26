@@ -3,12 +3,15 @@ package org.nolhtaced.desktop.controllers.forms;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.nolhtaced.core.exceptions.UserNotFoundException;
+import org.nolhtaced.core.models.Bicycle;
 import org.nolhtaced.core.models.Customer;
+import org.nolhtaced.core.models.Transaction;
 import org.nolhtaced.core.models.User;
 import org.nolhtaced.core.services.CustomerService;
 import org.nolhtaced.desktop.UserSession;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerFormController extends FormController<Customer> {
     @FXML
@@ -96,7 +99,18 @@ public class CustomerFormController extends FormController<Customer> {
     @Override
     protected Customer getFormData() {
         User userData = userFormController.getFormData();
+        List<Bicycle> bicycles = data.getBicycles();
+        List<Transaction> transactions = data.getTransactions();
 
+        if (bicycles == null || bicycles.isEmpty()) {
+            bicycles = new ArrayList<>();
+        }
+
+        if (transactions == null || transactions.isEmpty()) {
+            transactions = new ArrayList<>();
+        }
+
+        // TODO check if there's a better way to handle the list constructors...
         return new Customer(
                 userData.getUsername(),
                 userData.getPassword(),
@@ -107,9 +121,8 @@ public class CustomerFormController extends FormController<Customer> {
                 Float.parseFloat(discountRateField.getText()),
                 addressField.getText(),
                 Integer.parseInt(vatNoField.getText()),
-                // TODO these aren't really ok are they lol
-                new ArrayList<>(),
-                new ArrayList<>()
+                bicycles,
+                transactions
         );
     }
 }

@@ -22,9 +22,9 @@ public class BicycleMapper {
     private static final HashMap<String, BicycleTypeEnum> REVERSE_BICYCLE_TYPES = new HashMap<>();
 
     static {
-        REVERSE_BICYCLE_TYPES.put(BicycleTypeEnum.ROAD.toString(), BicycleTypeEnum.ROAD);
-        REVERSE_BICYCLE_TYPES.put(BicycleTypeEnum.MOUNTAIN.toString(), BicycleTypeEnum.MOUNTAIN);
-        REVERSE_BICYCLE_TYPES.put(BicycleTypeEnum.GRAVEL.toString(), BicycleTypeEnum.GRAVEL);
+        REVERSE_BICYCLE_TYPES.put(BicycleTypeEnum.ROAD.value, BicycleTypeEnum.ROAD);
+        REVERSE_BICYCLE_TYPES.put(BicycleTypeEnum.MOUNTAIN.value, BicycleTypeEnum.MOUNTAIN);
+        REVERSE_BICYCLE_TYPES.put(BicycleTypeEnum.GRAVEL.value, BicycleTypeEnum.GRAVEL);
     }
 
     public static Converter<CustomerBicycleEntity, Bicycle> entityToDomain = new Converter<CustomerBicycleEntity, Bicycle>() {
@@ -38,7 +38,7 @@ public class BicycleMapper {
             bicycle.setName(bicycleEntity.getName());
             bicycle.setModel(bicycleEntity.getModel());
             bicycle.setBrand(bicycleEntity.getBrand());
-            bicycle.setType(REVERSE_BICYCLE_TYPES.get(bicycleEntity.getType()));
+            bicycle.setType(REVERSE_BICYCLE_TYPES.get(bicycleEntity.getType().trim()));
 
             List<Repair> repairs = bicycleEntity.getRepairs().stream().map(
                     repair -> mapper.map(repair, Repair.class)
@@ -63,7 +63,7 @@ public class BicycleMapper {
             bicycleEntity.setName(bicycle.getName());
             bicycleEntity.setModel(bicycle.getModel());
             bicycleEntity.setBrand(bicycle.getBrand());
-            bicycleEntity.setType(bicycle.getType().toString());
+            bicycleEntity.setType(bicycle.getType().value);
 
             return bicycleEntity;
         }

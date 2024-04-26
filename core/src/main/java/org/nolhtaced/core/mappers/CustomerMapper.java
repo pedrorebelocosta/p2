@@ -1,5 +1,6 @@
 package org.nolhtaced.core.mappers;
 
+import org.nolhtaced.core.entities.CustomerBicycleEntity;
 import org.nolhtaced.core.entities.CustomerEntity;
 import org.nolhtaced.core.entities.UserEntity;
 import org.modelmapper.Converter;
@@ -12,6 +13,7 @@ import org.nolhtaced.core.models.User;
 import org.nolhtaced.core.providers.ModelMapperProvider;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class CustomerMapper {
@@ -59,12 +61,19 @@ public class CustomerMapper {
             CustomerEntity customerEntity = new CustomerEntity();
             UserEntity userEntity = mapper.map(customer, UserEntity.class);
 
+            // TODO desmartelate 🔨🔨🔨🔨
+            userEntity.setRole("C");
             customerEntity.setId(customer.getId());
             customerEntity.setUser(userEntity);
             customerEntity.setDiscountRate(customer.getDiscountRate());
             customerEntity.setAddress(customer.getAddress());
             customerEntity.setVatNo(customer.getVatNo());
 
+            Set<CustomerBicycleEntity> bicycles = customer.getBicycles().stream().map(
+                    bicycle -> mapper.map(bicycle, CustomerBicycleEntity.class)
+            ).collect(Collectors.toSet());
+
+            customerEntity.setCustomerBicycles(bicycles);
             return customerEntity;
         }
     };

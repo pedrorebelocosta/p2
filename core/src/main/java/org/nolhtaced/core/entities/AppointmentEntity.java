@@ -2,6 +2,7 @@ package org.nolhtaced.core.entities;
 
 import jakarta.persistence.*;
 
+import java.time.Instant;
 import java.time.LocalDate;
 
 @Entity
@@ -34,6 +35,17 @@ public class AppointmentEntity {
 
     @Column(name = "state", length = Integer.MAX_VALUE)
     private String state;
+
+    @Column(name = "schedule_date", nullable = false)
+    private Instant scheduleDate;
+
+    public Instant getScheduleDate() {
+        return scheduleDate;
+    }
+
+    public void setScheduleDate(Instant scheduleDate) {
+        this.scheduleDate = scheduleDate;
+    }
 
     public Integer getId() {
         return id;

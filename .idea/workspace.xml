@@ -4,23 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="631cfad4-049a-4269-bcc0-fd8c2e956814" name="Changes" comment="minor improvements reviewed TODO's and left the ones that matter">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/AppointmentEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/enumerators/AppointmentStateEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/enumerators/AppointmentTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/exceptions/AppointmentNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/AppointmentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/models/Appointment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/AppointmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+    <list default="true" id="631cfad4-049a-4269-bcc0-fd8c2e956814" name="Changes" comment="added base support for appointment scheduling">
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/AddBicycleFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/AppointmentEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/AppointmentEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/CustomerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/CustomerEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/providers/ModelMapperProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/providers/ModelMapperProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/BaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/BaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/EmployeeFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/EmployeeFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/RepairFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/RepairFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/enumerators/BicycleTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/enumerators/BicycleTypeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/BicycleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/BicycleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/CustomerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/CustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/CustomerFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/views/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/enumerators/EAppForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/enumerators/EAppForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/utilities/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/utilities/UIManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/resources/views/customer-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/resources/views/customer-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,73 +72,73 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.DesktopApplication.executor": "Run",
-    "Application.Laucher.executor": "Run",
-    "Application.Launcher.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.org.nolhtaced.desktop.DesktopApplication.executor": "Run",
-    "Application.org.nolhtaced.desktop.Main.executor": "Run",
-    "Maven.base [-q,-Dexec.executable=\"echo\"...].executor": "Run",
-    "Maven.base [-v].executor": "Run",
-    "Maven.base [clean].executor": "Run",
-    "Maven.base [install].executor": "Run",
-    "Maven.base [package].executor": "Run",
-    "Maven.base [validate].executor": "Run",
-    "Maven.core [clean].executor": "Run",
-    "Maven.core [compile].executor": "Run",
-    "Maven.core [install].executor": "Run",
-    "Maven.core [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "Maven.core [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile].executor": "Run",
-    "Maven.core [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor": "Run",
-    "Maven.core [org.apache.maven.plugins:maven-jar-plugin:3.3.0:jar].executor": "Run",
-    "Maven.core [package].executor": "Run",
-    "Maven.desktop-app [clean,install,javafx:run].executor": "Run",
-    "Maven.desktop-app [clean,install;,javafx:run].executor": "Run",
-    "Maven.desktop-app [clean].executor": "Run",
-    "Maven.desktop-app [compile].executor": "Run",
-    "Maven.desktop-app [dependency:purge-local-repository].executor": "Run",
-    "Maven.desktop-app [help:effective-pom].executor": "Run",
-    "Maven.desktop-app [install].executor": "Run",
-    "Maven.desktop-app [javafx:run] (1).executor": "Run",
-    "Maven.desktop-app [javafx:run].executor": "Run",
-    "Maven.desktop-app [mvn,clean,install;...].executor": "Run",
-    "Maven.desktop-app [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "Maven.desktop-app [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile].executor": "Run",
-    "Maven.desktop-app [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:testCompile].executor": "Run",
-    "Maven.desktop-app [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
-    "Maven.desktop-app [package].executor": "Run",
-    "Maven.desktop-app [run-build-deps].executor": "Run",
-    "Maven.desktop-app [run].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "corretto-11",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/pedrocosta/Desktop/nolhtaced-core/core/src/main/java/org/nolhtaced",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.24854933",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "/Users/pedrocosta/Desktop/nolhtaced-core/web-app/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.DesktopApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Laucher.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.org.nolhtaced.desktop.DesktopApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.org.nolhtaced.desktop.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.base [-q,-Dexec.executable=\&quot;echo\&quot;...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.base [-v].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.base [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.base [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.base [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.base [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.core [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.core [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.core [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.core [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.core [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.core [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.core [org.apache.maven.plugins:maven-jar-plugin:3.3.0:jar].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.core [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [clean,install,javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [clean,install;,javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [dependency:purge-local-repository].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [help:effective-pom].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [javafx:run] (1).executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [mvn,clean,install;...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:testCompile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [run-build-deps].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.desktop-app [run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-11&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/pedrocosta/Desktop/nolhtaced-core/core/src/main/java/org/nolhtaced&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.24854933&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/pedrocosta/Desktop/nolhtaced-core/web-app/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/core/src/main/java/org/nolhtaced" />
@@ -322,7 +318,10 @@
       <workItem from="1712781836780" duration="32299000" />
       <workItem from="1713169282647" duration="24576000" />
       <workItem from="1713255318763" duration="20349000" />
-      <workItem from="1713339293076" duration="53145000" />
+      <workItem from="1713339293076" duration="62752000" />
+      <workItem from="1714120569669" duration="1086000" />
+      <workItem from="1714142552226" duration="2918000" />
+      <workItem from="1714146775248" duration="315000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit with &quot;some work&quot;">
       <option name="closed" value="true" />
@@ -364,7 +363,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713539223586</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added base support for appointment scheduling">
+      <option name="closed" value="true" />
+      <created>1713794919275</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713794919276</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,6 +394,7 @@
     <MESSAGE value="some more work on this thing that I'm trying to put together as I figure out the structure and meaning of life" />
     <MESSAGE value="things are starting to make sense in my head, sonic gotta go fast" />
     <MESSAGE value="minor improvements reviewed TODO's and left the ones that matter" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor improvements reviewed TODO's and left the ones that matter" />
+    <MESSAGE value="added base support for appointment scheduling" />
+    <option name="LAST_COMMIT_MESSAGE" value="added base support for appointment scheduling" />
   </component>
 </project>

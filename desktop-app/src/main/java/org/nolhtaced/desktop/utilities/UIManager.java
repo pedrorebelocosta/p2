@@ -27,6 +27,7 @@ public class UIManager {
         SCREENS_LOCATION_MAP.put(EAppArea.APPLICATION, "/areas/application.fxml");
         FORMS_LOCATION_MAP.put(EAppForm.CATEGORY_FORM, "/forms/category-form.fxml");
         FORMS_LOCATION_MAP.put(EAppForm.CUSTOMER_FORM, "/forms/customer-form.fxml");
+        FORMS_LOCATION_MAP.put(EAppForm.CUSTOMER_BICYCLES_FORM, "/forms/bicycle-form.fxml");
         FORMS_LOCATION_MAP.put(EAppForm.EMPLOYEE_FORM, "/forms/employee-form.fxml");
         FORMS_LOCATION_MAP.put(EAppForm.PRODUCT_FORM, "/forms/product-form.fxml");
         FORMS_LOCATION_MAP.put(EAppForm.REPAIR_FORM, "/forms/repair-form.fxml");

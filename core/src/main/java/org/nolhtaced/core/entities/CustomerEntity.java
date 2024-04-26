@@ -36,14 +36,6 @@ public class CustomerEntity {
     @OneToMany(mappedBy = "customer")
     private Set<AppointmentEntity> appointments = new LinkedHashSet<>();
 
-    public Set<AppointmentEntity> getAppointments() {
-        return appointments;
-    }
-
-    public void setAppointments(Set<AppointmentEntity> appointments) {
-        this.appointments = appointments;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -88,12 +80,24 @@ public class CustomerEntity {
         return customerBicycles;
     }
 
+    public void setCustomerBicycles(Set<CustomerBicycleEntity> customerBicycles) {
+        this.customerBicycles = customerBicycles;
+    }
+
     public Set<TransactionEntity> getTransactions() {
         return transactions;
     }
 
     public void setTransactions(Set<TransactionEntity> transactions) {
         this.transactions = transactions;
+    }
+
+    public Set<AppointmentEntity> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(Set<AppointmentEntity> appointments) {
+        this.appointments = appointments;
     }
 
     @Override

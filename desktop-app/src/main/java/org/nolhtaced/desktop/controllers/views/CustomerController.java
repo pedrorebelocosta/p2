@@ -41,6 +41,8 @@ public class CustomerController {
     public Button newCustomerBtn;
     @FXML
     public Button editCustomerBtn;
+    @FXML
+    public Button viewBicyclesBtn;
 
     private final CustomerService customerService;
 
@@ -58,12 +60,23 @@ public class CustomerController {
         activeCol.setCellValueFactory(new PropertyValueFactory<>("active"));
 
         editCustomerBtn.disableProperty().bind(Bindings.isNull(tableView.getSelectionModel().selectedItemProperty()));
+        viewBicyclesBtn.disableProperty().bind(Bindings.isNull(tableView.getSelectionModel().selectedItemProperty()));
         populateTable();
     }
 
     public void onClickAdd() throws UIManagerNotInitializedException {
         try {
             UIManager.openForm(EAppForm.CUSTOMER_FORM, unused -> this.populateTable());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void onClickViewBicycles() throws UIManagerNotInitializedException {
+        Customer tableCustomer = tableView.getSelectionModel().getSelectedItem();
+
+        try {
+            UIManager.openForm(EAppForm.CUSTOMER_BICYCLES_FORM, tableCustomer, unused -> this.populateTable());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

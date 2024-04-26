@@ -3,22 +3,28 @@ package org.nolhtaced.core.enumerators;
 // https://www.baeldung.com/java-enum-values
 // try to make this cleaner
 public enum BicycleTypeEnum {
-    ROAD {
+    ROAD("R") {
         @Override
         public String toString() {
-            return "R";
+            return "Road";
         }
     },
-    MOUNTAIN {
+    MOUNTAIN("M") {
         @Override
         public String toString() {
-            return "M";
+            return "Mountain";
         }
     },
-    GRAVEL {
+    GRAVEL("G") {
         @Override
         public String toString() {
-            return "G";
+            return "Gravel";
         }
     };
+
+    public final String value;
+
+    BicycleTypeEnum(String value) {
+        this.value = value;
+    }
 }

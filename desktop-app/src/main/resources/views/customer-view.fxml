@@ -24,6 +24,7 @@
    <top>
       <HBox alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0" prefWidth="610.0" spacing="8.0" BorderPane.alignment="CENTER">
          <children>
+            <Button fx:id="viewBicyclesBtn" mnemonicParsing="false" onAction="#onClickViewBicycles" text="View Bicycles" />
             <Button fx:id="editCustomerBtn" mnemonicParsing="false" onAction="#onClickEdit" text="Edit" />
             <Button fx:id="newCustomerBtn" mnemonicParsing="false" onAction="#onClickAdd" text="New Customer" />
          </children>
