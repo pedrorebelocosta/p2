@@ -1,6 +1,7 @@
 package org.nolhtaced.desktop.enumerators;
 
 public enum EAppView {
+    APPOINTMENT_MANAGEMENT("Appointments"),
     USER_MANAGEMENT("Users"),
     CUSTOMER_MANAGEMENT("Customers"),
     PRODUCT_MANAGEMENT("Products"),

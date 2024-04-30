@@ -40,6 +40,7 @@ public class ApplicationController {
     private static final HashMap<EAppView, String> VIEWS_LOCATION_MAP = new LinkedHashMap<>();
 
     static {
+        VIEWS_LOCATION_MAP.put(EAppView.APPOINTMENT_MANAGEMENT, "/views/appointments-view.fxml");
         VIEWS_LOCATION_MAP.put(EAppView.USER_MANAGEMENT, "/views/user-view.fxml");
         VIEWS_LOCATION_MAP.put(EAppView.CUSTOMER_MANAGEMENT, "/views/customer-view.fxml");
         VIEWS_LOCATION_MAP.put(EAppView.PRODUCT_MANAGEMENT, "/views/product-view.fxml");
@@ -82,6 +83,7 @@ public class ApplicationController {
         }
 
         if (role == UserRoleEnum.SALES_REPRESENTATIVE) {
+            availableViews.add(EAppView.APPOINTMENT_MANAGEMENT);
             availableViews.add(EAppView.CUSTOMER_MANAGEMENT);
             availableViews.add(EAppView.SALES_MANAGEMENT);
             availableViews.add(EAppView.ORDERS_MANAGEMENT);
@@ -89,6 +91,7 @@ public class ApplicationController {
         }
 
         if (role == UserRoleEnum.MECHANIC) {
+            availableViews.add(EAppView.APPOINTMENT_MANAGEMENT);
             availableViews.add(EAppView.CUSTOMER_MANAGEMENT);
             availableViews.add(EAppView.REPAIRS_MANAGEMENT);
         }

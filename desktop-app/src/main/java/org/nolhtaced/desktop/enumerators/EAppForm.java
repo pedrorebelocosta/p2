@@ -1,6 +1,7 @@
 package org.nolhtaced.desktop.enumerators;
 
 public enum EAppForm {
+    APPOINTMENT_FORM,
     CATEGORY_FORM,
     CUSTOMER_FORM,
     CUSTOMER_BICYCLES_FORM,

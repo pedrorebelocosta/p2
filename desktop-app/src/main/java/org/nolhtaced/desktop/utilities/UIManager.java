@@ -25,6 +25,7 @@ public class UIManager {
     static {
         SCREENS_LOCATION_MAP.put(EAppArea.LOGIN, "/areas/login.fxml");
         SCREENS_LOCATION_MAP.put(EAppArea.APPLICATION, "/areas/application.fxml");
+        FORMS_LOCATION_MAP.put(EAppForm.APPOINTMENT_FORM, "/forms/appointment-form.fxml");
         FORMS_LOCATION_MAP.put(EAppForm.CATEGORY_FORM, "/forms/category-form.fxml");
         FORMS_LOCATION_MAP.put(EAppForm.CUSTOMER_FORM, "/forms/customer-form.fxml");
         FORMS_LOCATION_MAP.put(EAppForm.CUSTOMER_BICYCLES_FORM, "/forms/bicycle-form.fxml");

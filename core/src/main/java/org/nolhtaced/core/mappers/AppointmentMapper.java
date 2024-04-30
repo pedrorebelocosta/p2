@@ -38,6 +38,7 @@ public class AppointmentMapper {
 
             destination.setId(source.getId());
             destination.setCreatedAt(source.getCreatedAt());
+            destination.setScheduleDate(source.getScheduleDate());
             destination.setType(REVERSE_APPOINTMENT_TYPES.get(source.getType().trim()));
             destination.setCustomerId(source.getCustomer().getId());
             destination.setRequesterId(source.getRequester().getId());
@@ -58,9 +59,9 @@ public class AppointmentMapper {
             CustomerEntity customerEntity = customerDao.get(source.getCustomerId()).get();
             UserEntity requesterUserEntity = userDao.get(source.getRequesterId()).get();
 
-
             destination.setId(source.getId());
             destination.setCreatedAt(source.getCreatedAt());
+            destination.setScheduleDate(source.getScheduleDate());
             destination.setType(source.getType().value);
             destination.setCustomer(customerEntity);
             destination.setRequester(requesterUserEntity);

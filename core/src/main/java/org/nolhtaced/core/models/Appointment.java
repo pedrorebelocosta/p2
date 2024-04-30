@@ -4,10 +4,12 @@ import org.nolhtaced.core.enumerators.AppointmentStateEnum;
 import org.nolhtaced.core.enumerators.AppointmentTypeEnum;
 import org.nolhtaced.core.types.Identifiable;
 
+import java.time.Instant;
 import java.time.LocalDate;
 
 public class Appointment extends Identifiable<Integer> {
     private LocalDate createdAt;
+    private Instant scheduleDate;
     private AppointmentTypeEnum type;
     private Integer customerId;
     private Integer requesterId;
@@ -18,8 +20,9 @@ public class Appointment extends Identifiable<Integer> {
     public Appointment() {
     }
 
-    public Appointment(LocalDate createdAt, AppointmentTypeEnum type, Integer customerId, Integer requesterId, String customerNotes, String employeeNotes, AppointmentStateEnum state) {
+    public Appointment(LocalDate createdAt, Instant scheduleDate, AppointmentTypeEnum type, Integer customerId, Integer requesterId, String customerNotes, String employeeNotes, AppointmentStateEnum state) {
         this.createdAt = createdAt;
+        this.scheduleDate = scheduleDate;
         this.type = type;
         this.customerId = customerId;
         this.requesterId = requesterId;
@@ -28,9 +31,10 @@ public class Appointment extends Identifiable<Integer> {
         this.state = state;
     }
 
-    public Appointment(Integer id, LocalDate createdAt, AppointmentTypeEnum type, Integer customerId, Integer requesterId, String customerNotes, String employeeNotes, AppointmentStateEnum state) {
+    public Appointment(Integer id, LocalDate createdAt, Instant scheduleDate, AppointmentTypeEnum type, Integer customerId, Integer requesterId, String customerNotes, String employeeNotes, AppointmentStateEnum state) {
         super(id);
         this.createdAt = createdAt;
+        this.scheduleDate = scheduleDate;
         this.type = type;
         this.customerId = customerId;
         this.requesterId = requesterId;
@@ -45,6 +49,14 @@ public class Appointment extends Identifiable<Integer> {
 
     public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Instant getScheduleDate() {
+        return scheduleDate;
+    }
+
+    public void setScheduleDate(Instant scheduleDate) {
+        this.scheduleDate = scheduleDate;
     }
 
     public AppointmentTypeEnum getType() {
