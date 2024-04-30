@@ -121,6 +121,8 @@ public class AppointmentFormController extends FormController<Appointment> {
 
     @Override
     protected void onDataReceived(Appointment data) {
+        if (data.getId() == null) return;
+
         LocalDate date = LocalDate.ofInstant(data.getScheduleDate(), ZoneId.of("UTC"));
         LocalTime time = LocalTime.ofInstant(data.getScheduleDate(), ZoneId.of("UTC"));
 

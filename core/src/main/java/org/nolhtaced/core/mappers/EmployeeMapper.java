@@ -43,6 +43,7 @@ public class EmployeeMapper {
             EmployeeEntity employeeEntity = new EmployeeEntity();
 
             UserEntity userEntity = mapper.map(employee, UserEntity.class);
+            userEntity.setRole(employee.getRole().value);
 
             employeeEntity.setId(employee.getId());
             employeeEntity.setUser(userEntity);
