@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="631cfad4-049a-4269-bcc0-fd8c2e956814" name="Changes" comment="add appointments support">
+    <list default="true" id="631cfad4-049a-4269-bcc0-fd8c2e956814" name="Changes" comment="🔨">
+      <change afterPath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/EmployeeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/mappers/EmployeeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/AppointmentFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/AppointmentFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/Tests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/areas/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/areas/ApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/CustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/CustomerFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/SalesFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/SalesFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/UserFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/UserFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/helpers/TableCellHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,11 +114,13 @@
     "Maven.desktop-app [package].executor": "Run",
     "Maven.desktop-app [run-build-deps].executor": "Run",
     "Maven.desktop-app [run].executor": "Run",
+    "Maven.webapi [clean].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.WebapiApplication.executor": "Run",
     "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "corretto-11",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/pedrocosta/Desktop/nolhtaced-core/core/src/main/java/org/nolhtaced",
     "node.js.detected.package.eslint": "true",
@@ -144,7 +156,7 @@
       <recent name="$PROJECT_DIR$/desktop-app/src/main/resources/images" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.desktop-app [run]">
+  <component name="RunManager" selected="Spring Boot.WebapiApplication">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.nolhtaced.core.Main" />
       <module name="core" />
@@ -280,11 +292,20 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <configuration name="WebapiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="web-api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.nolhtaced.webapi.WebapiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Tests" />
       <item itemvalue="Application.Main" />
       <item itemvalue="JavaScript Debug.Debug Application" />
       <item itemvalue="Maven.desktop-app [run]" />
+      <item itemvalue="Spring Boot.WebapiApplication" />
     </list>
     <recent_temporary>
       <list>
@@ -297,6 +318,7 @@
     <attachedChunks>
       <set>
         <option value="jdk-11.0.22-corretto-11.0.22-4caba194b151-396cc1b2" />
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-53826d6a" />
       </set>
     </attachedChunks>
   </component>
@@ -322,7 +344,9 @@
       <workItem from="1713339293076" duration="62752000" />
       <workItem from="1714120569669" duration="1086000" />
       <workItem from="1714142552226" duration="2918000" />
-      <workItem from="1714146775248" duration="24524000" />
+      <workItem from="1714146775248" duration="29066000" />
+      <workItem from="1714728455880" duration="6441000" />
+      <workItem from="1714949505310" duration="9829000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit with &quot;some work&quot;">
       <option name="closed" value="true" />
@@ -396,7 +420,31 @@
       <option name="project" value="LOCAL" />
       <updated>1714473695769</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="🔨">
+      <option name="closed" value="true" />
+      <created>1714476787589</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1714476787589</updated>
+    </task>
+    <task id="LOCAL-00011" summary="🔨">
+      <option name="closed" value="true" />
+      <created>1714476887865</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1714476887865</updated>
+    </task>
+    <task id="LOCAL-00012" summary="🔨">
+      <option name="closed" value="true" />
+      <created>1714476895881</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1714476895881</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,6 +470,7 @@
     <MESSAGE value="added base support for appointment scheduling" />
     <MESSAGE value="forgot to add a field for the schedule date/time on the appointments, lmao" />
     <MESSAGE value="add appointments support" />
-    <option name="LAST_COMMIT_MESSAGE" value="add appointments support" />
+    <MESSAGE value="" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

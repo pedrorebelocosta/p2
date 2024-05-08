@@ -110,7 +110,6 @@ public class CustomerFormController extends FormController<Customer> {
             transactions = new ArrayList<>();
         }
 
-        // TODO check if there's a better way to handle the list constructors...
         return new Customer(
                 userData.getUsername(),
                 userData.getPassword(),

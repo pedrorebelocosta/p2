@@ -55,7 +55,6 @@ public class UserFormController extends FormController<User> {
         dateOfBirthField.setValue(data.getDateOfBirth());
         activeField.setSelected(data.getActive());
         role = data.getRole();
-        // THIS METHOD WILL ONLY BE CALLED WHEN EDITING A USER
     }
 
     public void onClickSave() throws UserNotFoundException  {

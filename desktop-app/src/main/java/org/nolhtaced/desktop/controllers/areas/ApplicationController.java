@@ -58,7 +58,7 @@ public class ApplicationController {
         icon.setIconSize(32);
         logoutButtonImg.setGraphic(icon);
         logoutButtonImg.setOnMouseClicked(e -> logout());
-        changeView(EAppView.SALES_MANAGEMENT);
+        changeView(EAppView.CUSTOMER_MANAGEMENT);
         menuItemsVBox.getChildren().addAll(buildNavigationOptions());
     }
 
@@ -100,6 +100,7 @@ public class ApplicationController {
             Label label = new Label();
             label.setCursor(Cursor.HAND);
             label.setText(key.label);
+            label.setId(key.toString());
             label.setOnMouseClicked(mouseEvent -> changeView(key));
             options.add(label);
         });

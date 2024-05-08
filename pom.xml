@@ -12,6 +12,7 @@
     <modules>
         <module>core</module>
         <module>desktop-app</module>
+        <module>web-api</module>
     </modules>
 
     <properties>

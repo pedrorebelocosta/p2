@@ -341,32 +341,6 @@ public class SalesFormController extends FormController<Transaction> {
             })
             .decorates(customerField);
 
-        // TODO IMPROVEMENT THIS SHOULD BE A DOMAIN RULE
-//        validator.createCheck()
-//                .dependsOn("quantity", quantityField.textProperty())
-//                .dependsOn("itemName", sellableListCombobox.valueProperty())
-//                .withMethod(context -> {
-//                    String sellableName = context.get("itemName");
-//                    Float quantity = Float.parseFloat(context.get("quantity"));
-//
-//                    System.out.println("sellable name " + sellableName);
-//                    System.out.println("available quantity " + quantity);
-//
-//                    if (sellableName.startsWith("p-")) {
-//                        try {
-//                            Product product = productService.getByName(sellableName);
-//
-//                            if (quantity > product.getAvailableUnits()) {
-//                                context.error(String.format("Quantity cannot exceed current product stock of %s units", product.getAvailableUnits()));
-//                            }
-//
-//                        } catch (ProductNotFoundException e) {
-//                            throw new RuntimeException(e);
-//                        }
-//                    }
-//                })
-//                .decorates(quantityField);
-
         validator.createCheck()
                 .dependsOn("transactionState", transactionStateField.valueProperty())
                 .withMethod(context -> {
