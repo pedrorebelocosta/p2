@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="631cfad4-049a-4269-bcc0-fd8c2e956814" name="Changes" comment="starting work on api" />
+    <list default="true" id="631cfad4-049a-4269-bcc0-fd8c2e956814" name="Changes" comment="starting work on api">
+      <change afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/controllers/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/controllers/DemoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/models/CustomerDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/models/auth/AuthResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/models/auth/SigninRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/models/auth/SignupRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/security/JwtAuthFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/security/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/services/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f73e6bbf-09eb-4615-b80f-aeeebb9f02d8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f73e6bbf-09eb-4615-b80f-aeeebb9f02d8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/services/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/CustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop-app/src/main/java/org/nolhtaced/desktop/controllers/forms/CustomerFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/WebapiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/WebapiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/web-api/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,13 +43,13 @@
         <option value="com.haulmont.jpb.JpaEntity" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -60,76 +83,85 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.DesktopApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Laucher.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Tests.executor&quot;: &quot;Run&quot;,
-    &quot;Application.org.nolhtaced.desktop.DesktopApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.org.nolhtaced.desktop.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.base [-q,-Dexec.executable=\&quot;echo\&quot;...].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.base [-v].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.base [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.base [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.base [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.base [validate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.core [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.core [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.core [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.core [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.core [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.core [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.core [org.apache.maven.plugins:maven-jar-plugin:3.3.0:jar].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.core [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [clean,install,javafx:run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [clean,install;,javafx:run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [dependency:purge-local-repository].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [help:effective-pom].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [javafx:run] (1).executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [javafx:run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [mvn,clean,install;...].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:testCompile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [run-build-deps].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.desktop-app [run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.webapi [clean].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.WebapiApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/pedrocosta/Desktop/nolhtaced-core/core/src/main/java/org/nolhtaced&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.24854933&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/pedrocosta/Desktop/nolhtaced-core/web-app/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.DesktopApplication.executor": "Run",
+    "Application.Laucher.executor": "Run",
+    "Application.Launcher.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.Test.executor": "Run",
+    "Application.Tests.executor": "Run",
+    "Application.org.nolhtaced.desktop.DesktopApplication.executor": "Run",
+    "Application.org.nolhtaced.desktop.Main.executor": "Run",
+    "Maven.base [-q,-Dexec.executable=\"echo\"...].executor": "Run",
+    "Maven.base [-v].executor": "Run",
+    "Maven.base [clean].executor": "Run",
+    "Maven.base [install].executor": "Run",
+    "Maven.base [package].executor": "Run",
+    "Maven.base [validate].executor": "Run",
+    "Maven.core [clean].executor": "Run",
+    "Maven.core [compile].executor": "Run",
+    "Maven.core [install].executor": "Run",
+    "Maven.core [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.core [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile].executor": "Run",
+    "Maven.core [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor": "Run",
+    "Maven.core [org.apache.maven.plugins:maven-jar-plugin:3.3.0:jar].executor": "Run",
+    "Maven.core [package].executor": "Run",
+    "Maven.desktop-app [clean,install,javafx:run].executor": "Run",
+    "Maven.desktop-app [clean,install;,javafx:run].executor": "Run",
+    "Maven.desktop-app [clean].executor": "Run",
+    "Maven.desktop-app [compile].executor": "Run",
+    "Maven.desktop-app [dependency:purge-local-repository].executor": "Run",
+    "Maven.desktop-app [help:effective-pom].executor": "Run",
+    "Maven.desktop-app [install].executor": "Run",
+    "Maven.desktop-app [javafx:run] (1).executor": "Run",
+    "Maven.desktop-app [javafx:run].executor": "Run",
+    "Maven.desktop-app [mvn,clean,install;...].executor": "Run",
+    "Maven.desktop-app [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.desktop-app [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile].executor": "Run",
+    "Maven.desktop-app [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:testCompile].executor": "Run",
+    "Maven.desktop-app [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
+    "Maven.desktop-app [package].executor": "Run",
+    "Maven.desktop-app [run-build-deps].executor": "Run",
+    "Maven.desktop-app [run].executor": "Run",
+    "Maven.web-api [clean].executor": "Run",
+    "Maven.web-api [install].executor": "Run",
+    "Maven.webapi [clean].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ServletInitializer.executor": "Run",
+    "Spring Boot.WebapiApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/pedrocosta/Desktop/nolhtaced-core/core/src/main/java/org/nolhtaced",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.43218392",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "editor.preferences.completion",
+    "ts.external.directory.path": "/Users/pedrocosta/Desktop/nolhtaced-core/web-app/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/core/src/main/java/org/nolhtaced" />
@@ -143,13 +175,26 @@
       <recent name="$PROJECT_DIR$/desktop-app/src/main/resources/images" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.WebapiApplication">
+  <component name="RunManager" selected="Spring Boot.ServletInitializer">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.nolhtaced.core.Main" />
       <module name="core" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.nolhtaced.core.types.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.nolhtaced.desktop.Test" />
+      <module name="desktop-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.nolhtaced.desktop.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -173,13 +218,12 @@
           <MavenGeneralSettings>
             <option name="alwaysUpdateSnapshots" value="false" />
             <option name="checksumPolicy" value="NOT_SET" />
+            <option name="customMavenHome" />
             <option name="emulateTerminal" value="false" />
             <option name="failureBehavior" value="NOT_SET" />
             <option name="localRepository" value="" />
             <option name="mavenHome" value="Bundled (Maven 3)" />
-            <option name="mavenHomeType">
-              <MavenHomeType />
-            </option>
+            <option name="mavenHomeTypeForPersistence" value="BUNDLED3" />
             <option name="nonRecursive" value="false" />
             <option name="outputLevel" value="INFO" />
             <option name="printErrorStackTraces" value="false" />
@@ -279,6 +323,20 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <configuration name="ServletInitializer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="web-api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.nolhtaced.webapi.ServletInitializer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.nolhtaced.webapi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WebapiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="web-api" />
@@ -288,14 +346,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Test" />
       <item itemvalue="Application.Tests" />
       <item itemvalue="Application.Main" />
       <item itemvalue="JavaScript Debug.Debug Application" />
+      <item itemvalue="Maven.desktop-app [run-build-deps]" />
       <item itemvalue="Maven.desktop-app [run]" />
       <item itemvalue="Spring Boot.WebapiApplication" />
+      <item itemvalue="Spring Boot.ServletInitializer" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.ServletInitializer" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Tests" />
         <item itemvalue="Application.Main" />
       </list>
@@ -304,8 +367,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-11.0.22-corretto-11.0.22-4caba194b151-396cc1b2" />
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-53826d6a" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
       </set>
     </attachedChunks>
   </component>
@@ -334,6 +397,8 @@
       <workItem from="1714146775248" duration="29066000" />
       <workItem from="1714728455880" duration="6441000" />
       <workItem from="1714949505310" duration="10161000" />
+      <workItem from="1715691672726" duration="6405000" />
+      <workItem from="1715933728432" duration="27489000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit with &quot;some work&quot;">
       <option name="closed" value="true" />
@@ -468,5 +533,9 @@
     <MESSAGE value="" />
     <MESSAGE value="starting work on api" />
     <option name="LAST_COMMIT_MESSAGE" value="starting work on api" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="IU-233.14475.28">
+  <component name="dataSourceStorageLocal" created-in="IU-241.15989.150">
     <data-source name="bikes@localhost" uuid="f73e6bbf-09eb-4615-b80f-aeeebb9f02d8">
-      <database-info product="PostgreSQL" version="15.6 (Homebrew)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.6.0" dbms="POSTGRES" exact-version="15.6" exact-driver-version="42.6">
+      <database-info product="PostgreSQL" version="15.6" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.6.0" dbms="POSTGRES" exact-version="15.6" exact-driver-version="42.6">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />

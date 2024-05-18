@@ -1,6 +1,7 @@
 package org.nolhtaced.core.services;
 
 import jakarta.persistence.PersistenceException;
+import org.nolhtaced.core.models.User;
 import org.nolhtaced.core.types.NolhtacedSession;
 import org.nolhtaced.core.dao.Dao;
 import org.nolhtaced.core.dao.DaoImpl;
@@ -42,7 +43,8 @@ public class CustomerService extends BaseService {
     }
 
     public Customer getByUsername(String userName) throws UserNotFoundException {
-        Optional<CustomerEntity> customerEntity = customerDao.getByUniqueAttribute("username", userName);
+        User user = userService.getByUsername(userName);
+        Optional<CustomerEntity> customerEntity = customerDao.get(user.getId());
 
         if (customerEntity.isEmpty()) {
             throw new UserNotFoundException();

@@ -99,14 +99,15 @@ public class CustomerFormController extends FormController<Customer> {
     @Override
     protected Customer getFormData() {
         User userData = userFormController.getFormData();
-        List<Bicycle> bicycles = data.getBicycles();
-        List<Transaction> transactions = data.getTransactions();
+        List<Bicycle> bicycles = new ArrayList<>();
+        List<Transaction> transactions = new ArrayList<>();
 
-        if (bicycles == null || bicycles.isEmpty()) {
+        // this condition may be wrongfully checking data.getBicycles and transactions
+        if (data == null || data.getBicycles() == null) {
             bicycles = new ArrayList<>();
         }
 
-        if (transactions == null || transactions.isEmpty()) {
+        if (data == null || data.getTransactions() == null) {
             transactions = new ArrayList<>();
         }
 
