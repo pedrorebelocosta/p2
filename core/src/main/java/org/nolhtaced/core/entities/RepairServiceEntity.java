@@ -9,12 +9,12 @@ public class RepairServiceEntity {
     private RepairServiceIdEntity id;
 
     @MapsId("repairId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "repair_id", nullable = false)
     private RepairEntity repairEntity;
 
     @MapsId("serviceId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "service_id", nullable = false)
     private ServiceEntity serviceEntity;
 

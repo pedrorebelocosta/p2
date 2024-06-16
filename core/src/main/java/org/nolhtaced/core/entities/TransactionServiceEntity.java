@@ -9,12 +9,12 @@ public class TransactionServiceEntity {
     private TransactionServiceIdEntity id;
 
     @MapsId("transactionId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "transaction_id", nullable = false)
     private TransactionEntity transaction;
 
     @MapsId("serviceId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "service_id", nullable = false)
     private ServiceEntity serviceEntity;
 

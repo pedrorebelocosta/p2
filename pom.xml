@@ -12,7 +12,6 @@
     <modules>
         <module>core</module>
         <module>desktop-app</module>
-        <module>web-api</module>
     </modules>
 
     <properties>
@@ -20,5 +19,4 @@
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
 </project>

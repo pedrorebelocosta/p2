@@ -9,12 +9,12 @@ public class TransactionProductEntity {
     private TransactionProductIdEntity id;
 
     @MapsId("transactionId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.MERGE)
     @JoinColumn(name = "transaction_id", nullable = false)
     private TransactionEntity transaction;
 
     @MapsId("productId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "product_id", nullable = false)
     private ProductEntity productEntity;
 

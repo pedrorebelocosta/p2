@@ -13,7 +13,7 @@ public class RepairEntity {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "bicycle_id", nullable = false)
     private CustomerBicycleEntity bicycle;
 
@@ -23,7 +23,7 @@ public class RepairEntity {
     @Column(name = "notes", length = Integer.MAX_VALUE)
     private String notes;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "assigned_employee_id")
     private EmployeeEntity assignedEmployeeEntity;
 

@@ -9,16 +9,14 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import org.nolhtaced.core.providers.PersistenceProvider;
 
-
 import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DaoImpl<E, K extends Serializable> implements Dao<E, K>{
-    protected final EntityManager em = PersistenceProvider.getEntityManager();
-    protected final Class<E> type;
+public class DaoImpl<E, K extends Serializable> implements Dao<E, K> {
+    private final Class<E> type;
 
     public DaoImpl(Class<E> type) {
         this.type = type;
@@ -26,56 +24,104 @@ public class DaoImpl<E, K extends Serializable> implements Dao<E, K>{
 
     @Override
     public Optional<E> get(K id) {
-        return Optional.ofNullable(em.find(type, id));
+        EntityManager em = PersistenceProvider.getEntityManager();
+        try {
+            return Optional.ofNullable(em.find(type, id));
+        } finally {
+            PersistenceProvider.closeEntityManager();
+        }
     }
 
     @Override
     public Optional<E> getByUniqueAttribute(String attributeName, String value) {
-        CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<E> cq = cb.createQuery(type);
-        Root<E> rootEntry = cq.from(type);
-        cq.where(cb.equal(rootEntry.get(attributeName), value));
-        CriteriaQuery<E> record = cq.select(rootEntry);
-        TypedQuery<E> query = em.createQuery(record);
-
+        EntityManager em = PersistenceProvider.getEntityManager();
         try {
-            E result = query.getSingleResult();
-            return Optional.ofNullable(result);
-        } catch (NoResultException e) {
-            Logger.getAnonymousLogger().log(Level.INFO, "an exception was thrown " + e.getMessage());
-            return Optional.empty();
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<E> cq = cb.createQuery(type);
+            Root<E> rootEntry = cq.from(type);
+            cq.where(cb.equal(rootEntry.get(attributeName), value));
+            CriteriaQuery<E> record = cq.select(rootEntry);
+            TypedQuery<E> query = em.createQuery(record);
+
+            try {
+                E result = query.getSingleResult();
+                return Optional.ofNullable(result);
+            } catch (NoResultException e) {
+                Logger.getAnonymousLogger().log(Level.INFO, "No result found for getByUniqueAttribute: " + e.getMessage());
+                return Optional.empty();
+            }
+        } finally {
+            PersistenceProvider.closeEntityManager();
         }
     }
 
     @Override
     public List<E> getAll() {
-        CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<E> cq = cb.createQuery(type);
-        Root<E> rootEntry = cq.from(type);
-        CriteriaQuery<E> all = cq.select(rootEntry);
-        TypedQuery<E> allQuery = em.createQuery(all);
-        return allQuery.getResultList();
+        EntityManager em = PersistenceProvider.getEntityManager();
+        try {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<E> cq = cb.createQuery(type);
+            Root<E> rootEntry = cq.from(type);
+            CriteriaQuery<E> all = cq.select(rootEntry);
+            TypedQuery<E> allQuery = em.createQuery(all);
+            return allQuery.getResultList();
+        } finally {
+            PersistenceProvider.closeEntityManager();
+        }
     }
 
     @Override
     public void save(E entity) {
-        em.getTransaction().begin();
-        em.persist(entity);
-        em.getTransaction().commit();
+        EntityManager em = PersistenceProvider.getEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(entity);
+            em.getTransaction().commit();
+        } catch (PersistenceException e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            Logger.getAnonymousLogger().log(Level.SEVERE, "Error occurred in save: " + e.getMessage());
+            throw e;
+        } finally {
+            PersistenceProvider.closeEntityManager();
+        }
     }
 
     @Override
     public E update(E entity) {
-        em.getTransaction().begin();
-        E obj = em.merge(entity);
-        em.getTransaction().commit();
-        return obj;
+        EntityManager em = PersistenceProvider.getEntityManager();
+        try {
+            em.getTransaction().begin();
+            E obj = em.merge(entity);
+            em.getTransaction().commit();
+            return obj;
+        } catch (PersistenceException e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            Logger.getAnonymousLogger().log(Level.SEVERE, "Error occurred in update: " + e.getMessage());
+            throw e;
+        } finally {
+            PersistenceProvider.closeEntityManager();
+        }
     }
 
     @Override
     public void delete(E entity) throws PersistenceException {
-        em.getTransaction().begin();
-        em.remove(entity);
-        em.getTransaction().commit();
+        EntityManager em = PersistenceProvider.getEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.remove(entity);
+            em.getTransaction().commit();
+        } catch (PersistenceException e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            Logger.getAnonymousLogger().log(Level.SEVERE, "Error occurred in delete: " + e.getMessage());
+            throw e;
+        } finally {
+            PersistenceProvider.closeEntityManager();
+        }
     }
 }

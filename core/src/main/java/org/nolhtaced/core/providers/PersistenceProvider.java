@@ -5,31 +5,38 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class PersistenceProvider {
+    private static ThreadLocal<EntityManager> entityManagerThreadLocal = new ThreadLocal<>();
     private static EntityManagerFactory entityManagerFactory;
-    private static EntityManager entityManager;
 
     private PersistenceProvider() {}
 
     public static EntityManager getEntityManager() {
-        if (entityManagerFactory == null) {
-            entityManagerFactory = Persistence.createEntityManagerFactory("bike_shop");
-        }
+        EntityManager entityManager = entityManagerThreadLocal.get();
+
         if (entityManager == null || !entityManager.isOpen()) {
-            entityManager = entityManagerFactory.createEntityManager();
+            entityManager = createEntityManager();
+            entityManagerThreadLocal.set(entityManager);
         }
+
         return entityManager;
     }
 
-    public static void closeEntityManager() {
-        if (entityManager != null && entityManager.isOpen()) {
-            entityManager.close();
-            entityManager = null;
+    private synchronized static EntityManager createEntityManager() {
+        if (entityManagerFactory == null) {
+            entityManagerFactory = Persistence.createEntityManagerFactory("bike_shop");
         }
-
-        closeEntityManagerFactory();
+        return entityManagerFactory.createEntityManager();
     }
 
-    private static void closeEntityManagerFactory() {
+    public static void closeEntityManager() {
+        EntityManager entityManager = entityManagerThreadLocal.get();
+        if (entityManager != null && entityManager.isOpen()) {
+            entityManager.close();
+            entityManagerThreadLocal.remove();
+        }
+    }
+
+    public synchronized static void closeEntityManagerFactory() {
         if (entityManagerFactory != null && entityManagerFactory.isOpen()) {
             entityManagerFactory.close();
             entityManagerFactory = null;

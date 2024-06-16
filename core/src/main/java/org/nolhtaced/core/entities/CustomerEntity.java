@@ -14,7 +14,7 @@ public class CustomerEntity {
 
     // https://stackoverflow.com/questions/25090486/java-spring-hibernate-not-updating-entities
     @MapsId
-    @OneToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.MERGE)
+    @OneToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.MERGE)
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity userEntity;
 
@@ -27,13 +27,13 @@ public class CustomerEntity {
     @Column(name = "vat_no")
     private Integer vatNo;
 
-    @OneToMany(mappedBy = "customerEntity", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "customerEntity", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private Set<CustomerBicycleEntity> customerBicycles = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "customerEntity")
+    @OneToMany(mappedBy = "customerEntity", fetch = FetchType.EAGER)
     private Set<TransactionEntity> transactions = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
     private Set<AppointmentEntity> appointments = new LinkedHashSet<>();
 
     public Integer getId() {

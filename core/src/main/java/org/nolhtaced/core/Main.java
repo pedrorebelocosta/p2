@@ -27,7 +27,10 @@ public class Main {
     public static void main(String[] args) {
         Sessao s = new Sessao();
         CustomerService service = new CustomerService(s);
-        TransactionService txService = new TransactionService(s);
-        txService.getAllOnlineOrders().forEach(System.out::println);
+        try {
+            System.out.println(service.getByUsername("ines2"));
+        } catch (UserNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
