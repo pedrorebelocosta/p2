@@ -26,7 +26,7 @@ public class CustomerBicycleEntity {
     @Column(name = "brand", nullable = false, length = 256)
     private String brand;
 
-    @OneToMany(mappedBy = "bicycle", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "bicycle", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Set<RepairEntity> repairEntities = new LinkedHashSet<>();
 
     @Column(name = "type", nullable = false, length = Integer.MAX_VALUE)

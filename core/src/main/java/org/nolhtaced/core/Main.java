@@ -29,6 +29,7 @@ public class Main {
         CustomerService service = new CustomerService(s);
         try {
             System.out.println(service.getByUsername("ines2"));
+
         } catch (UserNotFoundException e) {
             throw new RuntimeException(e);
         }

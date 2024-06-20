@@ -4,47 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="631cfad4-049a-4269-bcc0-fd8c2e956814" name="Changes" comment="spring security integration wip">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="631cfad4-049a-4269-bcc0-fd8c2e956814" name="Changes" comment="fixed cors preflight, isolated entity manager by thread for no collisions, shortcoming: mappers will not work unless everything is fetched eagerly... need to fix at a later stage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/dao/DaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/dao/DaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/AppointmentEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/AppointmentEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/CustomerBicycleEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/CustomerBicycleEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/CustomerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/CustomerEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/EmployeeEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/EmployeeEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/ProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/ProductEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/RepairEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/RepairEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/RepairProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/RepairProductEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/RepairServiceEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/RepairServiceEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionProductEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionServiceEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/entities/TransactionServiceEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/providers/PersistenceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/nolhtaced/core/providers/PersistenceProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/ServletInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/WebapiApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/config/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/controllers/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/controllers/DemoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/controllers/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/models/CustomerDetails.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/models/auth/AuthResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/models/auth/SigninRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/models/auth/SignupRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/security/JwtAuthFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/security/JwtService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/src/main/java/org/nolhtaced/webapi/services/AuthenticationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-api/src/test/java/org/nolhtaced/webapi/WebapiApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -416,7 +380,8 @@
       <workItem from="1718203180859" duration="308000" />
       <workItem from="1718203500952" duration="593000" />
       <workItem from="1718357182034" duration="10218000" />
-      <workItem from="1718527754486" duration="3204000" />
+      <workItem from="1718527754486" duration="3298000" />
+      <workItem from="1718805549658" duration="8440000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit with &quot;some work&quot;">
       <option name="closed" value="true" />
@@ -530,7 +495,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716043989452</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fixed cors preflight, isolated entity manager by thread for no collisions, shortcoming: mappers will not work unless everything is fetched eagerly... need to fix at a later stage">
+      <option name="closed" value="true" />
+      <created>1718577740396</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1718577740396</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +532,8 @@
     <MESSAGE value="" />
     <MESSAGE value="starting work on api" />
     <MESSAGE value="spring security integration wip" />
-    <option name="LAST_COMMIT_MESSAGE" value="spring security integration wip" />
+    <MESSAGE value="fixed cors preflight, isolated entity manager by thread for no collisions, shortcoming: mappers will not work unless everything is fetched eagerly... need to fix at a later stage" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed cors preflight, isolated entity manager by thread for no collisions, shortcoming: mappers will not work unless everything is fetched eagerly... need to fix at a later stage" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
