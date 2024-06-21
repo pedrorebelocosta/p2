@@ -137,9 +137,18 @@ public class AppointmentFormController extends FormController<Appointment> {
 
     @Override
     protected Appointment getFormData() {
-        Instant scheduleDate = LocalDateTime.of(dateBox.getValue(), timeBox.getValue()).toInstant(ZoneOffset.UTC);
+        Instant scheduleDate = null;
+        if (dateBox.getValue() != null && timeBox.getValue() != null) {
+            scheduleDate = LocalDateTime.of(dateBox.getValue(), timeBox.getValue()).toInstant(ZoneOffset.UTC);
+        }
+
         LocalDate creationDate;
         Integer requesterId;
+        Integer customerId = null;
+
+        if (customerBox.getValue() != null) {
+            customerId = customerBox.getValue().getId();
+        }
 
         creationDate = data.getId() != null ? data.getCreatedAt() : LocalDate.now();
         requesterId = data.getId() != null ? data.getRequesterId() : UserSession.getSession().getCurrentUser().get().getId();
@@ -148,7 +157,7 @@ public class AppointmentFormController extends FormController<Appointment> {
                 creationDate,
                 scheduleDate,
                 data.getType(),
-                customerBox.getValue().getId(),
+                customerId,
                 requesterId,
                 customerNotesArea.getText(),
                 employeeNotesArea.getText(),
